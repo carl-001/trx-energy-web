@@ -1,438 +1,527 @@
 <!DOCTYPE html>
-<!-- saved from url=(0023)https://www.trxfuel.cc/ -->
-<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        <link rel="shortcut icon" href="https://www.trxfuel.cc/favicon.ico">
-        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-        <title>自助TRX能量租赁平台</title>
-        <meta name="keywords" content="自助TRX能量租赁,波场能量租赁,TRON能量租赁,USDT免费转账,TRX/USDT在线兑换">
-        <meta name="description" content="安全可靠的自助TRX能量租赁服务提供商,注重稳定与信赖,我们提供充足廉价的TRX能量,支持在线TRX与USDT的即时兑换,确保您的区块链操作高效顺畅。选择我们,优化您的区块链操作体验。">
-        <link href="files/index.css" rel="stylesheet">
-        <link href="files/public.css" rel="stylesheet">
-        <link href="files/smallScreen.css" rel="stylesheet">
-        <script src="files/jquery-3.7.1.min.js"></script>
+
+<html lang="zh">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link href="https://www.trxfuel.cc/favicon.ico" rel="shortcut icon"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <title>TRX 能量租赁｜USDT↔TRX 闪兑｜快速稳定｜trxfuel.cc</title>
+
+    <meta content="TRX 能量自助租赁与 USDT↔TRX 闪兑，6 秒内到账、稳定可靠。提供时长能量、笔数套餐与 API，支持 Telegram 客服与查询。" name="description"/>
+    <link href="files/index.css" rel="stylesheet"/>
+    <link href="files/public.css" rel="stylesheet"/>
+    <link href="files/smallScreen.css" rel="stylesheet"/>
+    <script src="files/jquery-3.7.1.min.js"></script>
+    <meta content="index,follow,max-image-preview:large" name="robots"/>
+    <link href="https://www.trxfuel.cc/" rel="canonical"/>
+    <meta content="website" property="og:type"/>
+    <meta content="zh_CN" property="og:locale"/>
+    <meta content="trxfuel.cc" property="og:site_name"/>
+    <meta content="TRX 能量租赁｜USDT↔TRX 闪兑" property="og:title"/>
+    <meta content="6 秒内到账、稳定可靠。支持时长能量、笔数套餐与 API。" property="og:description"/>
+    <meta content="https://www.trxfuel.cc/" property="og:url"/>
+    <meta content="https://www.trxfuel.cc/files/og-cover.jpg" property="og:image"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="TRX 能量租赁｜USDT↔TRX 闪兑" name="twitter:title"/>
+    <meta content="6 秒内到账、稳定可靠。" name="twitter:description"/>
+    <meta content="https://www.trxfuel.cc/files/og-cover.jpg" name="twitter:image"/>
+    <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "trxfuel.cc",
+        "url": "https://www.trxfuel.cc/",
+        "logo": "https://www.trxfuel.cc/files/logo.png",
+        "sameAs": [
+            "https://t.me/trxyes_com"
+        ]
+    }</script>
+    <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "TRX 能量租赁与闪兑",
+        "provider": {
+            "@type": "Organization",
+            "name": "trxfuel.cc"
+        },
+        "areaServed": "Worldwide",
+        "url": "https://www.trxfuel.cc/#energyRental",
+        "description": "自助 TRX 能量租赁、USDT↔TRX 闪兑，快速稳定到账。"
+    }</script>
+    <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "波场链上 USDT 转账手续费怎么算？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "若无能量则消耗 TRX；正常一笔约需 65000 能量或约 13.4 TRX，对方无 USDT 或未激活约需 131000 能量或约 26.5 TRX。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "能量有什么用？能节省多少？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "能量抵扣手续费；使用能量后单笔费用约 3.4 TRX 左右，相比不使用能量可节省近 10 TRX。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "TRX 能量怎么获得？平台能量从哪来？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "通过质押 TRX 获得，平台以自有质押及能量主供给为主。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "USDT 和 TRX 在线兑换汇率如何计算？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "参考交易所最新价格，每分钟更新，含少量手续费后得出最终汇率。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "购买或兑换不到账怎么办？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "偶尔区块延时或丢包，联系在线客服处理。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "购买后未使用能量能退款吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "不支持退款；到期后回收为质押的 TRX 和能量。"
+                }
+            }
+        ]
+    }</script>
 </head>
-
 <body>
-        <div class="header">
-                <div class="menu elementWith">
-                        <div class="logo">
-                                <img class="logo_size" src="files/logo.png" alt="logo">
-                        </div>
-                        <div class="nav">
-                                <ul>
-                                        <li><a href="https://www.trxfuel.cc/#energyRental">能量闪租</a></li>
-                                        <li><a href="https://www.trxfuel.cc/#exchange">U-T闪兑</a></li>
-                                        <li><a href="https://www.trxfuel.cc/#prestore">笔数模式</a></li>
-                                        <li><a href="https://www.trxfuel.cc/#api">能量API</a></li>
-                                        <li class="apititle"><a href="https://www.trxfuel.cc/#agents">加入代理</a></li>
-                                        <li id="customerService"><a href="https://www.trxfuel.cc/#">联系客服</a></li>
-                                </ul>
-                        </div>
-                </div>
-                <div class="title elementWith">
-                        <h1>安全可靠的TRX自助能量租赁平台</h1>
-                        <p>快速稳定助力您的每一次交易</p>
-                </div>
-                <div class="notice elementWith">
-                        <p class="noticeColor"><i class="noticeIstyle">温馨提示:</i>笔数3Trx/笔,笔数永久有效,欢迎试用 ！招能量代理！
-                        </p>
-                </div>
-                <div class="energyRentalDiv elementWith" id="energyRental">
-                        <h2>能量闪租,灵活方便</h2>
-                        <div class="bishuleft bishuPublick">
-                                <span class="setpNumberSytle">流程说明</span>
-                                <ul>
-                                        <li>选择自己想要的笔数及有效时间</li>
-                                        <li>向平台能量租赁地址转入对应的数量</li>
-                                        <li>转帐后6秒内到账能量</li>
-                                        <li>有大额需求联系客服,有优惠</li>
-                                </ul>
-                        </div>
-                        <div class="bishucenter bishuPublick">
-                                <span class="setpNumberSytle">一、 选择您需要的笔数及时长</span>
-                                <div class="selectTimeAndPrice">
-                                        <select id="selectCount">
-                                                <option value="0">请选择笔数</option>
-                                                <option value="1">1笔转帐能量</option>
-                                                <option value="2">2笔转帐能量</option>
-                                                <option value="3">3笔转帐能量</option>
-                                                <option value="4">4笔转帐能量</option>
-                                                <option value="5">5笔转帐能量</option>
-                                                <option value="10">10笔转帐能量</option>
-                                                <option value="20">20笔转帐能量</option>
-                                                <option value="30">30笔转帐能量</option>
-                                        </select>
-                                        <span>x</span>
-                                        <select id="timeAndPrice">
-                                                <option value="1.5">1.5TRX / 1小时有效</option>
-                                        </select>
-                                </div>
-                                <div class="SelectPrompt">
-                                        <span>*支持 <i id="biShuNumber">1-30</i> 笔之间的笔数购买</span>
-                                        <span>*对方地址无U或未激活时需2笔能量</span>
-                                        <span>*详细联系客服 <a class="viewBot telegram-text" href="https://t.me/TrxYesEnergyBot" target="_blank">@bit1111111</a></span>
-                                </div>
-                        </div>
-                        <div class="bishuright bishuPublick">
-                                <div class="addressTitle martop">
-                                        <span class="setpNumberSytle">二、 复制租赁地址 点击即复制</span>
-                                        <img id="rqCodeicon2" src="files/rqcode.png" alt="rqCodeIcon2">
-                                </div>
-                                <div class="addressDiv">
-                                        <span id="energyAddress">TGNDfXLAEbn1oDrVqavM8vQaWqwGXEP1kP</span>
-                                </div>
-                                <div class="priceDiv">
-                                        <div class="priceSpan">需转金额: <span id="price">0</span> <span id="tokenName">TRX</span></div>
-                                        <div class="conversion">
-                                                <span class="selectTrxUsdt">TRX</span>
-                                                <span id="selectUsdt">USDT</span>
-                                        </div>
-                                </div>
-                                <span class="convertSpan">*如无TRX,可使用系统中U-T互换后再操作</span>
-                        </div>
-                </div>
+<div class="header">
+    <div class="menu elementWith">
+        <div class="logo">
+            <img alt="logo" class="logo_size" loading="lazy" src="files/logo.png"/>
         </div>
-        <div class="exchangeDiv elementWith" id="exchange">
-                <h2>Tron波场在线 Usdt换TRX | Trx换USDT</h2>
-                <div class="exchangeRateDiv">
-                        <p class="exchangeRateP">实时汇率: 每分钟更新</p>
-                        <p class="exchangeutRate">1U = 2.671Trx || 1Trx = 0.374U</p>
-                </div>
-                <div class="exchangeInputDiv">
-                        <div class="exchangeItem1">
-                                <span id="iconName1">USDT</span>
-                                <input id="exchangeInput1" type="number" placeholder="0">
-                        </div>
-                        <div class="exchangeItem2">
-                                <img class="iconFont1" src="files/convert.png" alt="convertIcon">
-                                <img class="iconFont2" src="files/rightimg.png" alt="rightimg">
-                        </div>
-                        <div class="exchangeItem3">
-                                <span id="iconName2">TRX</span>
-                                <span id="getCount">0</span>
-                        </div>
-                        <div class="exchangeItem4">
-                                <div class="iconName3">
-                                        平台兑换地址(点击即复制)
-                                        <img id="rqCodeicon3" src="files/rqcode.png" alt="rqCodeicon3">
-                                </div>
-                                <span id="exchangeAddress">TGNDfXLAEbn1oDrVqavM8vQaWqwGXEP1kP</span>
-                        </div>
-                </div>
-                <div class="exchangePrompt">
-                        <i>兑换说明:</i>U换T最低 1U 起,暂不支持T换U, 获得数量 = 数量 * 汇率,不再扣除手续费,转错可联系客服退款。
-                </div>
+        <div class="nav">
+            <ul>
+                <li><a href="https://www.trxfuel.cc/#energyRental">能量闪租</a></li>
+                <li><a href="https://www.trxfuel.cc/#exchange">U-T闪兑</a></li>
+                <li><a href="https://www.trxfuel.cc/#prestore">笔数模式</a></li>
+                <li><a href="https://www.trxfuel.cc/#api">能量API</a></li>
+                <li class="apititle"><a href="https://www.trxfuel.cc/#agents">加入代理</a></li>
+                <li id="customerService"><a href="https://www.trxfuel.cc/#">联系客服</a></li>
+            </ul>
         </div>
-        <div class="prestoreDiv elementWith" id="prestore">
-                <h2>笔数模式,省时省心</h2>
-                <div class="prestoreLeft">
-                        <div class="descriptionDiv">
-                                <span class="setpNumberSytle">笔数的优势</span>
-                                <ul>
-                                        <li>系统随时保证您地址中有13.1万能量可用</li>
-                                        <li>用一笔扣一笔,不用每次转帐前再租用能量</li>
-                                        <li>3天不用自动暂停不再扣费,转U一次自动恢复</li>
-                                        <li>您地址无带宽且无trx时发送345带宽给您</li>
-                                </ul>
-                        </div>
-                        <div class="descriptionDiv">
-                                <span class="setpNumberSytle2">如何购买?</span>
-                                <ul>
-                                        <li>转入<b id="minTrxOrUsdt">61Trx或10Usdt</b>以上即为购买笔数</li>
-                                        <li>仅3Trx/笔,且时效为永久。</li>
-                                        <li>笔数提醒机器人<a class="lianxikefu telegram-text" href="https://t.me/TrxYesEnergyBot" target="_blank">@TrxYesEnergyBot</a></li>
-                                        <li class="gray">大客户或批量地址联系客服价格更优</li>
-                                </ul>
-                        </div>
-                </div>
-                <div class="prestoreRight">
-                        <div class="calculator">
-                                <p class="calculatorTitle">预存可获得笔数计算</p>
-                                <div class="selectMethod">
-                                        <span class="useTrx">√预存TRX</span>
-                                        <span class="useUsdt">预存USDT</span>
-                                </div>
-                                <div class="calculatorzhangwei"></div>
-                                <p class="calculatorGetCount">获得转帐笔数</p>
-                                <input type="number" id="calculatorInput" placeholder="0">
-                                <div class="calculatoriconDiv">
-                                        <img class="calculatoricon" src="files/rightimg.png" alt="rightimg">
-                                </div>
-                                <span id="calculatorText">0</span>
-                                <p class="selectText">*请输入您要预存的Trx数量</p>
-                        </div>
-                        <div class="prestoreAddress">
-                                <div class="iconName3">
-                                        笔数购买地址(点击即复制)
-                                        <img id="rqCodeicon4" src="files/rqcode.png" alt="rqCodeicon4">
-                                </div>
-                                <span id="copyPrestoreAddress">TGNDfXLAEbn1oDrVqavM8vQaWqwGXEP1kP</span>
-                        </div>
-                        <div class="SelectDiv">
-                                <span class="selectTitle">预存余额/笔数明细查询</span>
-                                <input type="text" id="selectAddress" placeholder="请输入您要查询的地址">
-                                <button id="selectAddrBtn">查 询</button>
-                        </div>
-                </div>
+    </div>
+    <div class="title elementWith">
+        <h1>安全可靠的TRX自助能量租赁平台</h1>
+        <p>快速稳定助力您的每一次交易</p>
+    </div>
+    <div class="notice elementWith">
+        <p class="noticeColor"><i class="noticeIstyle">温馨提示:</i>笔数3Trx/笔,笔数永久有效,欢迎试用 ！招能量代理！
+        </p>
+    </div>
+    <div class="energyRentalDiv elementWith" id="energyRental">
+        <h2>能量闪租,灵活方便</h2>
+        <div class="bishuleft bishuPublick">
+            <span class="setpNumberSytle">流程说明</span>
+            <ul>
+                <li>选择自己想要的笔数及有效时间</li>
+                <li>向平台能量租赁地址转入对应的数量</li>
+                <li>转帐后6秒内到账能量</li>
+                <li>有大额需求联系客服,有优惠</li>
+            </ul>
         </div>
-        <div class="agentsDiv elementWith" id="agents">
-                <h2>Trx能量代理 回报丰厚</h2>
-                <div class="agentsContentDiv">
-                        <div class="agentsDescribe">
-                                <div class="agentsSalary">
-                                        <p>我们为您提供:</p>
-                                        <div class="agentsSalaryDiv">
-                                                <div class="ourResources">
-                                                        <img src="files/agentsSalary.png" alt="agentsSalary">
-                                                        <span class="agentsSalarySpan">海量能量,代理可享超低批发价</span>
-                                                </div>
-                                                <div class="ourResources">
-                                                        <img src="files/system.png" alt="system">
-                                                        <span class="agentsSalarySpan">提供系统支持,可使用自己的地址收款</span>
-                                                </div>
-                                                <div class="ourResources">
-                                                        <img src="files/gongneng.png" alt="gongneng">
-                                                        <span class="agentsSalarySpan">时长能量,笔数套餐,闪兑功能全免费开放</span>
-                                                </div>
-                                                <div class="ourResources">
-                                                        <img src="files/telegram-bot.png" alt="telegram-bot">
-                                                        <span class="agentsSalarySpan">免费Telegram机器人使用,助力业务扩展</span>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="agentsRequire">
-                                        <p>您要具备的条件:</p>
-                                        <div class="agentsRequireDiv">
-                                                <div class="agentsRequirements">
-                                                        <img src="files/require.png" alt="require">
-                                                        <span class="agentsRequireSpan">了解能量使用机制,有耐心指导会员购买和使用能量</span>
-                                                </div>
-                                                <div class="agentsRequirements">
-                                                        <img src="files/require.png" alt="telegram-bot">
-                                                        <span class="agentsRequireSpan">有一定资源,如:自身有能量需求或有能量需求的圈子</span>
-                                                </div>
-                                                <div class="agentsRequirements">
-                                                        <img src="files/require.png" alt="telegram-bot">
-                                                        <span class="agentsRequireSpan">拥有自己的推广方法及一定的业务扩展能力</span>
-                                                </div>
-                                                <div class="agentsRequirements">
-                                                        <img src="files/require.png" alt="telegram-bot">
-                                                        <span class="agentsRequireSpan">每天至少4小时的推广工作及持之以恒的心态</span>
-                                                </div>
-                                        </div>
-                                </div>
-                                <p class="agentsText">有兴趣且有销售渠道,请联系我们</p>
-                        </div>
-                </div>
+        <div class="bishucenter bishuPublick">
+            <span class="setpNumberSytle">一、 选择您需要的笔数及时长</span>
+            <div class="selectTimeAndPrice">
+                <select id="selectCount">
+                    <option value="0">请选择笔数</option>
+                    <option value="1" selected>1笔转帐能量</option>
+                    <option value="2">2笔转帐能量</option>
+                    <option value="3">3笔转帐能量</option>
+                    <option value="4">4笔转帐能量</option>
+                    <option value="5">5笔转帐能量</option>
+                    <option value="10">10笔转帐能量</option>
+                    <option value="20">20笔转帐能量</option>
+                    <option value="30">30笔转帐能量</option>
+                </select>
+                <span>x</span>
+                <select id="timeAndPrice">
+                    <option value="1.5">1.5TRX / 1小时有效</option>
+                </select>
+            </div>
+            <div class="SelectPrompt">
+                <span>*支持 <i id="biShuNumber">1-30</i> 笔之间的笔数购买</span>
+                <span>*对方地址无U或未激活时需2笔能量</span>
+                <span>*详细联系客服 <a class="viewBot telegram-text" href="#" rel="noopener"
+                                 target="_blank">@bit1111111</a></span>
+            </div>
         </div>
-        <div class="apiDiv elementWith" id="api">
-                <h2>能量API 提供超低价能量</h2>
-                <div class="apiTitleDiv">
-                        <div class="apiTitleItem1">
-                                <span class="apiPriceP">API能量当前售价:</span>
-                                <span class="apiPriceColor">*65000能量: 1.5trx</span>
-                                <span class="apiPriceColor">*以上为6.5万能量价格(trx),实际可按需购买</span>
-                                <span class="apiPriceColor">*每小时的价格由剩余能量决定,并不是固定的</span>
-                        </div>
-                        <div class="apiTitleItem2">
-                                <span class="apiPriceP">说 明:</span>
-                                <ul>
-                                        <li>API可成本价购买能量</li>
-                                        <li>开户免费使用代理功能</li>
-                                        <li>十亿级自有能量池</li>
-                                        <li>稳定,廉价的能量供应</li>
-                                        <li style="color: #0099ff;">开户及开发文档请联系客服</li>
-                                </ul>
-                        </div>
-                        <div class="apiTitleItem3">
-                                <span class="apiPriceP">注册开户:</span>
-                                <div class="apiKeFuDiv">
-                                        <img class="apiKeFuImg" src="files/telegram.png" alt="telegramKeFu">
-                                        <div class="apiKeFu">
-                                                <a class="apiKeFuId" href="https://t.me/trxyes_com">@bit1111111</a>
-                                                <a class="apiKeFuId2" href="https://t.me/trxyes_com">点击联系开户客服</a>
-                                        </div>
-                                </div>
-                                <div class="apiQueryDiv">
-                                        <span class="apiQueryP">帐号明细:</span>
-                                        <input type="text" id="queryInput" placeholder="请输入您的API用户名">
-                                        <button id="apiQueryBtn">查 看</button>
-                                </div>
-                        </div>
+        <div class="bishuright bishuPublick">
+            <div class="addressTitle martop">
+                <span class="setpNumberSytle">二、 复制租赁地址 点击即复制</span>
+                <img alt="rqCodeIcon2" id="rqCodeicon2" loading="lazy" src="files/rqcode.png"/>
+            </div>
+            <div class="addressDiv">
+                <span id="energyAddress">TGNDfXLAEbn1oDrVqavM8vQaWqwGXEP1kP</span>
+            </div>
+            <div class="priceDiv">
+                <div class="priceSpan">需转金额: <span id="price">1.5</span> <span id="tokenName">TRX</span></div>
+                <div class="conversion">
+                    <span class="selectTrxUsdt">TRX</span>
+                    <span id="selectUsdt">USDT</span>
                 </div>
+            </div>
+            <span class="convertSpan">*如无TRX,可使用系统中U-T互换后再操作</span>
         </div>
-        
-        <div class="aboutDiv" id="about">
-                <div class="aboutIndexPage elementWith">
-                        <h3>关于 trxfuel.cc 平台</h3>
-                        <ul class="aboutUl">
-                                <li>
-                                        <img src="files/authorization.png" alt="authorization">
-                                        <span>官方授权</span>
-                                </li>
-                                <li>
-                                        <img src="files/Affordable.png" alt="Affordable">
-                                        <span>高性价比</span>
-                                </li>
-                                <li>
-                                        <img src="files/stable.png" alt="stable">
-                                        <span>流畅稳定</span>
-                                </li>
-                        </ul>
-                        <div>
-                                trxfuel.cc 是一个由 <a href="https://www.tronscan.org/" target="_blank">Tron波场官方授权认证</a>、安全可靠的TRX能量自助租赁平台。我们拥有波场超级节点及TRON
-                                API高速访问权限，并使用集群服务器和全球CDN
-                                网络搭建租赁系统，以确保高性能和稳定的服务。平台成立至今已稳定运营一年多，成为众多客户信赖的选择。平台以24小时全自动操作为特点，能够快速处理能量及在线兑换业务，为用户提供优质，顺畅的服务。
-                        </div>
-                        <ul class="aboutList">
-                                <li>
-                                        <img src="files/rightimg.png" alt="rightimg">
-                                        <span>官方授权，享受权益和保障。</span>
-                                </li>
-                                <li>
-                                        <img src="files/rightimg.png" alt="rightimg">
-                                        <span>全球高速网络，流畅稳定</span>
-                                </li>
-                                <li>
-                                        <img src="files/rightimg.png" alt="rightimg">
-                                        <span>租赁方式灵活，满足大众需求</span>
-                                </li>
-                                <li>
-                                        <img src="files/rightimg.png" alt="rightimg">
-                                        <span>顶尖技术团队，持续更新与维护</span>
-                                </li>
-                        </ul>
-                </div>
+    </div>
+</div>
+<div class="exchangeDiv elementWith" id="exchange">
+    <h2>Tron波场在线 Usdt换TRX | Trx换USDT</h2>
+    <div class="exchangeRateDiv">
+        <p class="exchangeRateP">实时汇率: 每分钟更新</p>
+        <p class="exchangeutRate">1U = 2.671Trx || 1Trx = 0.374U</p>
+    </div>
+    <div class="exchangeInputDiv">
+        <div class="exchangeItem1">
+            <span id="iconName1">USDT</span>
+            <input id="exchangeInput1" placeholder="0" type="number"/>
         </div>
-        <div class="joinUsDiv" id="joinUs">
-                <div class="joinUsIndexPage elementWith">
-                        <h3>加入我们 共同发展</h3>
-                        <ul class="joinUsUl">
-                                <li>
-                                        <img src="files/energyMaster.png" alt="energyMaster">
-                                        <span><i>成为能量主:</i>仅需提供您帐号的能量代理/回收权限，年利率达20%-30%</span>
-                                </li>
-                                <li>
-                                        <img src="files/agent.png" alt="agent">
-                                        <span><i>成为代理:</i>分配独立能量租赁地址，闪兑地址，独立推广页，佣金即时结算</span>
-                                </li>
-                                <li>
-                                        <img src="files/selfServices.png" alt="selfServices">
-                                        <span><i>独立运营:</i>帮助搭建整套系统，专业技术团队24小时支持，您只需专注发展业务</span>
-                                </li>
-                                <li>
-                                        <img src="files/telegram.png" alt="telegram">
-                                        <span><i>立即联系:</i><a href="https://t.me/trxyes_com"> @trxyes_com 业务客服</a>
-                                        </span>
-                                </li>
-                        </ul>
-                </div>
+        <div class="exchangeItem2">
+            <img alt="convertIcon" class="iconFont1" loading="lazy" src="files/convert.png"/>
+            <img alt="rightimg" class="iconFont2" loading="lazy" src="files/rightimg.png"/>
         </div>
-        <div class="faq">
-                <div class="faqDiv elementWith">
-                        <h3>常见问题</h3>
-                        <div class="faqItem">
-                                <div class="faqTitle">
-                                        <img src="files/faq.png" alt="faqimg">
-                                        <h4>波场链上USDT转帐手续费怎么算？</h4>
-                                </div>
-                                <p>转帐时优先使用能量抵扣，如果没有能量则燃烧帐号中的TRX进行抵扣，正常的一笔USDT交易需要65000能量或13.4TRX左右的手续费，如果对方帐号没有USDT资产或未激活则需要131000能量或26.5TRX左右的手续费。
-                                </p>
-                        </div>
-                        <div class="faqItem">
-                                <div class="faqTitle">
-                                        <img src="files/faq.png" alt="faqimg">
-                                        <h4>能量有什么用？使用能量转帐能节省多少手续费？</h4>
-                                </div>
-                                <p>能量可以抵扣转账手续费，一笔USDT转帐在不使用能量的情况下大概需要13.4TRX的手续费，而使用了能量后费用大概就是3.4左右(租赁能量费用3TRX以及带宽费用0.345TRX)，所以一笔交易大约能节省下近10TRX的费用。
-                                </p>
-                        </div>
-                        <div class="faqItem">
-                                <div class="faqTitle">
-                                        <img src="files/faq.png" alt="faqimg">
-                                        <h4>TRX能量怎么获得？平台的能量从哪来的？</h4>
-                                </div>
-                                <p>能量通过质押TRX获得。每质押一个TRX大约获得12.2左右的能量(随着质押数量增加这个值会减少，因为能量每天发放的总量是固定的)，质押后TRX就不能交易了。要交易时先解压并且需要14天才可以。平台中的能量基本都是自有TRX质押获得，以及招募能量主提供的能量。
-                                </p>
-                        </div>
-                        <div class="faqItem">
-                                <div class="faqTitle">
-                                        <img src="files/faq.png" alt="faqimg">
-                                        <h4>USDT和TRX在线兑换的汇率是怎么计算的?</h4>
-                                </div>
-                                <p>汇率使用的是币安USDT购买TRX的最新价格进行计算，并且每一分钟更新一次，在平台收取了少许手续费用后得出最终的汇率。</p>
-                        </div>
-                        <div class="faqItem">
-                                <div class="faqTitle">
-                                        <img src="files/faq.png" alt="faqimg">
-                                        <h4>购买或兑换后不到帐该怎么办？</h4>
-                                </div>
-                                <p>请及时联系客服，虽然我们采用高性能集群服务器，但由于区块原因偶尔会出现延时或区块丢失的情况，但这种情况几乎是微乎其微的(实测大概是10万份之一的概率)。</p>
-                        </div>
-                        <div class="faqItem">
-                                <div class="faqTitle">
-                                        <img src="files/faq.png" alt="faqimg">
-                                        <h4>购买后没有使用能量是否支持退款？</h4>
-                                </div>
-                                <p>不支持退款，购买时长笔数套餐到期后不论您是否已使用能量都会自动回收为您质押的TRX和能量。</p>
-                        </div>
-                </div>
+        <div class="exchangeItem3">
+            <span id="iconName2">TRX</span>
+            <span id="getCount">0</span>
         </div>
-        <div class="footDiv">
-                <div class="safeAuthentication">
-                        <img src="files/safe.png" alt="save">
-                        <span>已通过安全认证</span>
-                </div>
-                <a href="https://www.trxfuel.cc/" target="_blank">Copyright © trxfuel.cc</a>
+        <div class="exchangeItem4">
+            <div class="iconName3">
+                平台兑换地址(点击即复制)
+                <img alt="rqCodeicon3" id="rqCodeicon3" loading="lazy" src="files/rqcode.png"/>
+            </div>
+            <span id="exchangeAddress">TGNDfXLAEbn1oDrVqavM8vQaWqwGXEP1kP</span>
         </div>
-        <div class="popupMenu">
-                <div id="message">This is a popup message.</div>
-                <div id="backTop">
-                        <img src="files/backTop.png" alt="backTop">
-                </div>
-                <div id="kefuIcon">
-                        <img src="files/kefu.png" alt="kefuIcon">
-                </div>
-                <div id="telegramID">
-                        <div class="telegramDiv">
-                                <div class="telegramTitle">
-                                        <span>飞机(电报)在线客服</span>
-                                        <span id="closeTelegram">X</span>
-                                </div>
-                                <img src="files/telegram.png" alt="telegram">
-                                <p id="telegramText">@trxyes_com</p>
-                                <div class="telegramButton">
-                                        <p id="copyTelegram">点击复制ID</p>
-                                        <a href="https://t.me/trxyes_com" target="_blank">直接打开</a>
-                                </div>
-
-                        </div>
-
-                </div>
-                <div id="addressQrcode">
-                        <div class="qrcodeDiv">
-                                <span id="qrcodeTitle">能量租赁地址二维码</span>
-                                <img id="qrcodeImg" src="files/energyQrcod.png" alt="addressImg">
-                                <div class="qrcodeText">
-                                        <p id="saveLocal">保存到本地</p>
-                                        <p id="closeQrcode">关闭退出</p>
-                                </div>
-                        </div>
-                </div>
-                <div id="addressBalance">
-                        <div class="addressBalanceDiv">
-                                <p class="balanceTitle">xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                                <p class="meingxiText">地址使用明细</p>
-                                <div class="balanceList">
-                                        <p>暂无事件</p>
-                                </div>
-                                <div class="closeBalance">X</div>
-                        </div>
-                </div>
+    </div>
+    <div class="exchangePrompt">
+        <i>兑换说明:</i>U换T最低 1U 起,暂不支持T换U, 获得数量 = 数量 * 汇率,不再扣除手续费,转错可联系客服退款。
+    </div>
+</div>
+<div class="prestoreDiv elementWith" id="prestore">
+    <h2>笔数模式,省时省心</h2>
+    <div class="prestoreLeft">
+        <div class="descriptionDiv">
+            <span class="setpNumberSytle">笔数的优势</span>
+            <ul>
+                <li>系统随时保证您地址中有13.1万能量可用</li>
+                <li>用一笔扣一笔,不用每次转帐前再租用能量</li>
+                <li>3天不用自动暂停不再扣费,转U一次自动恢复</li>
+                <li>您地址无带宽且无trx时发送345带宽给您</li>
+            </ul>
         </div>
-
-
+        <div class="descriptionDiv">
+            <span class="setpNumberSytle2">如何购买?</span>
+            <ul>
+                <li>转入<b id="minTrxOrUsdt">61Trx或10Usdt</b>以上即为购买笔数</li>
+                <li>仅3Trx/笔,且时效为永久。</li>
+                <li>笔数提醒机器人联系客服<a class="lianxikefu telegram-text" href="#" rel="noopener"
+                              target="_blank">@bit1111111</a></li>
+                <li class="gray">大客户或批量地址联系客服价格更优</li>
+            </ul>
+        </div>
+    </div>
+    <div class="prestoreRight">
+        <div class="calculator">
+            <p class="calculatorTitle">预存可获得笔数计算</p>
+            <div class="selectMethod">
+                <span class="useTrx">√预存TRX</span>
+                <span class="useUsdt">预存USDT</span>
+            </div>
+            <div class="calculatorzhangwei"></div>
+            <p class="calculatorGetCount">获得转帐笔数</p>
+            <input id="calculatorInput" placeholder="0" type="number"/>
+            <div class="calculatoriconDiv">
+                <img alt="rightimg" class="calculatoricon" loading="lazy" src="files/rightimg.png"/>
+            </div>
+            <span id="calculatorText">0</span>
+            <p class="selectText">*请输入您要预存的Trx数量</p>
+        </div>
+        <div class="prestoreAddress">
+            <div class="iconName3">
+                笔数购买地址(点击即复制)
+                <img alt="rqCodeicon4" id="rqCodeicon4" loading="lazy" src="files/rqcode.png"/>
+            </div>
+            <span id="copyPrestoreAddress">TGNDfXLAEbn1oDrVqavM8vQaWqwGXEP1kP</span>
+        </div>
+        <div class="SelectDiv">
+            <span class="selectTitle">预存余额/笔数明细查询</span>
+            <input id="selectAddress" placeholder="请输入您要查询的地址" type="text"/>
+            <button id="selectAddrBtn">查 询</button>
+        </div>
+    </div>
+</div>
+<div class="agentsDiv elementWith" id="agents">
+    <h2>Trx能量代理 回报丰厚</h2>
+    <div class="agentsContentDiv">
+        <div class="agentsDescribe">
+            <div class="agentsSalary">
+                <p>我们为您提供:</p>
+                <div class="agentsSalaryDiv">
+                    <div class="ourResources">
+                        <img alt="agentsSalary" loading="lazy" src="files/agentsSalary.png"/>
+                        <span class="agentsSalarySpan">海量能量,代理可享超低批发价</span>
+                    </div>
+                    <div class="ourResources">
+                        <img alt="system" loading="lazy" src="files/system.png"/>
+                        <span class="agentsSalarySpan">提供系统支持,可使用自己的地址收款</span>
+                    </div>
+                    <div class="ourResources">
+                        <img alt="gongneng" loading="lazy" src="files/gongneng.png"/>
+                        <span class="agentsSalarySpan">时长能量,笔数套餐,闪兑功能全免费开放</span>
+                    </div>
+                    <div class="ourResources">
+                        <img alt="telegram-bot" loading="lazy" src="files/telegram-bot.png"/>
+                        <span class="agentsSalarySpan">免费Telegram机器人使用,助力业务扩展</span>
+                    </div>
+                </div>
+            </div>
+            <div class="agentsRequire">
+                <p>您要具备的条件:</p>
+                <div class="agentsRequireDiv">
+                    <div class="agentsRequirements">
+                        <img alt="require" loading="lazy" src="files/require.png"/>
+                        <span class="agentsRequireSpan">了解能量使用机制,有耐心指导会员购买和使用能量</span>
+                    </div>
+                    <div class="agentsRequirements">
+                        <img alt="telegram-bot" loading="lazy" src="files/require.png"/>
+                        <span class="agentsRequireSpan">有一定资源,如:自身有能量需求或有能量需求的圈子</span>
+                    </div>
+                    <div class="agentsRequirements">
+                        <img alt="telegram-bot" loading="lazy" src="files/require.png"/>
+                        <span class="agentsRequireSpan">拥有自己的推广方法及一定的业务扩展能力</span>
+                    </div>
+                    <div class="agentsRequirements">
+                        <img alt="telegram-bot" loading="lazy" src="files/require.png"/>
+                        <span class="agentsRequireSpan">每天至少4小时的推广工作及持之以恒的心态</span>
+                    </div>
+                </div>
+            </div>
+            <p class="agentsText">有兴趣且有销售渠道,请联系我们</p>
+        </div>
+    </div>
+</div>
+<div class="apiDiv elementWith" id="api">
+    <h2>能量API 提供超低价能量</h2>
+    <div class="apiTitleDiv">
+        <div class="apiTitleItem1">
+            <span class="apiPriceP">API能量当前售价:</span>
+            <span class="apiPriceColor">*65000能量: 1.5trx</span>
+            <span class="apiPriceColor">*以上为6.5万能量价格(trx),实际可按需购买</span>
+            <span class="apiPriceColor">*每小时的价格由剩余能量决定,并不是固定的</span>
+        </div>
+        <div class="apiTitleItem2">
+            <span class="apiPriceP">说 明:</span>
+            <ul>
+                <li>API可成本价购买能量</li>
+                <li>开户免费使用代理功能</li>
+                <li>十亿级自有能量池</li>
+                <li>稳定,廉价的能量供应</li>
+                <li style="color: #0099ff;">开户及开发文档请联系客服</li>
+            </ul>
+        </div>
+        <div class="apiTitleItem3">
+            <span class="apiPriceP">注册开户:</span>
+            <div class="apiKeFuDiv">
+                <img alt="telegramKeFu" class="apiKeFuImg" loading="lazy" src="files/telegram.png"/>
+                <div class="apiKeFu">
+                    <a class="apiKeFuId" href="#">@bit1111111</a>
+                    <a class="apiKeFuId2" href="#">联系开户客服</a>
+                </div>
+            </div>
+            <div class="apiQueryDiv">
+                <span class="apiQueryP">帐号明细:</span>
+                <input id="queryInput" placeholder="请输入您的API用户名" type="text"/>
+                <button id="apiQueryBtn">查 看</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="aboutDiv" id="about">
+    <div class="aboutIndexPage elementWith">
+        <h3>关于 trxfuel.cc 平台</h3>
+        <ul class="aboutUl">
+            <li>
+                <img alt="authorization" loading="lazy" src="files/authorization.png"/>
+                <span>官方授权</span>
+            </li>
+            <li>
+                <img alt="Affordable" loading="lazy" src="files/Affordable.png"/>
+                <span>高性价比</span>
+            </li>
+            <li>
+                <img alt="stable" loading="lazy" src="files/stable.png"/>
+                <span>流畅稳定</span>
+            </li>
+        </ul>
+        <div>
+            trxfuel.cc 是一个由 <a href="https://www.tronscan.org/" rel="noopener" target="_blank">Tron波场官方授权认证</a>、安全可靠的TRX能量自助租赁平台。我们拥有波场超级节点及TRON
+            API高速访问权限，并使用集群服务器和全球CDN
+            网络搭建租赁系统，以确保高性能和稳定的服务。平台成立至今已稳定运营一年多，成为众多客户信赖的选择。平台以24小时全自动操作为特点，能够快速处理能量及在线兑换业务，为用户提供优质，顺畅的服务。
+        </div>
+        <ul class="aboutList">
+            <li>
+                <img alt="rightimg" loading="lazy" src="files/rightimg.png"/>
+                <span>官方授权，享受权益和保障。</span>
+            </li>
+            <li>
+                <img alt="rightimg" loading="lazy" src="files/rightimg.png"/>
+                <span>全球高速网络，流畅稳定</span>
+            </li>
+            <li>
+                <img alt="rightimg" loading="lazy" src="files/rightimg.png"/>
+                <span>租赁方式灵活，满足大众需求</span>
+            </li>
+            <li>
+                <img alt="rightimg" loading="lazy" src="files/rightimg.png"/>
+                <span>顶尖技术团队，持续更新与维护</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="joinUsDiv" id="joinUs">
+    <div class="joinUsIndexPage elementWith">
+        <h3>加入我们 共同发展</h3>
+        <ul class="joinUsUl">
+            <li>
+                <img alt="energyMaster" loading="lazy" src="files/energyMaster.png"/>
+                <span><i>成为能量主:</i>仅需提供您帐号的能量代理/回收权限，年利率达20%-30%</span>
+            </li>
+            <li>
+                <img alt="agent" loading="lazy" src="files/agent.png"/>
+                <span><i>成为代理:</i>分配独立能量租赁地址，闪兑地址，独立推广页，佣金即时结算</span>
+            </li>
+            <li>
+                <img alt="selfServices" loading="lazy" src="files/selfServices.png"/>
+                <span><i>独立运营:</i>帮助搭建整套系统，专业技术团队24小时支持，您只需专注发展业务</span>
+            </li>
+            <li>
+                <img alt="telegram" loading="lazy" src="files/telegram.png"/>
+                <span><i>立即联系:</i><a href="https://t.me/trxyes_com"> @trxyes_com 业务客服</a>
+</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="faq">
+    <div class="faqDiv elementWith">
+        <h3>常见问题</h3>
+        <div class="faqItem">
+            <div class="faqTitle">
+                <img alt="faqimg" loading="lazy" src="files/faq.png"/>
+                <h4>波场链上USDT转帐手续费怎么算？</h4>
+            </div>
+            <p>
+                转帐时优先使用能量抵扣，如果没有能量则燃烧帐号中的TRX进行抵扣，正常的一笔USDT交易需要65000能量或13.4TRX左右的手续费，如果对方帐号没有USDT资产或未激活则需要131000能量或26.5TRX左右的手续费。
+            </p>
+        </div>
+        <div class="faqItem">
+            <div class="faqTitle">
+                <img alt="faqimg" loading="lazy" src="files/faq.png"/>
+                <h4>能量有什么用？使用能量转帐能节省多少手续费？</h4>
+            </div>
+            <p>
+                能量可以抵扣转账手续费，一笔USDT转帐在不使用能量的情况下大概需要13.4TRX的手续费，而使用了能量后费用大概就是3.4左右(租赁能量费用3TRX以及带宽费用0.345TRX)，所以一笔交易大约能节省下近10TRX的费用。
+            </p>
+        </div>
+        <div class="faqItem">
+            <div class="faqTitle">
+                <img alt="faqimg" loading="lazy" src="files/faq.png"/>
+                <h4>TRX能量怎么获得？平台的能量从哪来的？</h4>
+            </div>
+            <p>
+                能量通过质押TRX获得。每质押一个TRX大约获得12.2左右的能量(随着质押数量增加这个值会减少，因为能量每天发放的总量是固定的)，质押后TRX就不能交易了。要交易时先解压并且需要14天才可以。平台中的能量基本都是自有TRX质押获得，以及招募能量主提供的能量。
+            </p>
+        </div>
+        <div class="faqItem">
+            <div class="faqTitle">
+                <img alt="faqimg" loading="lazy" src="files/faq.png"/>
+                <h4>USDT和TRX在线兑换的汇率是怎么计算的?</h4>
+            </div>
+            <p>汇率使用的是币安USDT购买TRX的最新价格进行计算，并且每一分钟更新一次，在平台收取了少许手续费用后得出最终的汇率。</p>
+        </div>
+        <div class="faqItem">
+            <div class="faqTitle">
+                <img alt="faqimg" loading="lazy" src="files/faq.png"/>
+                <h4>购买或兑换后不到帐该怎么办？</h4>
+            </div>
+            <p>请及时联系客服，虽然我们采用高性能集群服务器，但由于区块原因偶尔会出现延时或区块丢失的情况，但这种情况几乎是微乎其微的(实测大概是10万份之一的概率)。</p>
+        </div>
+        <div class="faqItem">
+            <div class="faqTitle">
+                <img alt="faqimg" loading="lazy" src="files/faq.png"/>
+                <h4>购买后没有使用能量是否支持退款？</h4>
+            </div>
+            <p>不支持退款，购买时长笔数套餐到期后不论您是否已使用能量都会自动回收为您质押的TRX和能量。</p>
+        </div>
+    </div>
+</div>
+<div class="footDiv">
+    <div class="safeAuthentication">
+        <img alt="save" loading="lazy" src="files/safe.png"/>
+        <span>已通过安全认证</span>
+    </div>
+    <a href="https://www.trxfuel.cc/" rel="noopener" target="_blank">Copyright © trxfuel.cc</a>
+</div>
+<div class="popupMenu">
+    <div id="message">This is a popup message.</div>
+    <div id="backTop">
+        <img alt="backTop" loading="lazy" src="files/backTop.png"/>
+    </div>
+    <div id="kefuIcon">
+        <img alt="kefuIcon" loading="lazy" src="files/kefu.png"/>
+    </div>
+    <div id="telegramID">
+        <div class="telegramDiv">
+            <div class="telegramTitle">
+                <span>飞机(电报)在线客服</span>
+                <span id="closeTelegram">X</span>
+            </div>
+            <img alt="telegram" loading="lazy" src="files/telegram.png"/>
+            <p id="telegramText">@trxyes_com</p>
+            <div class="telegramButton">
+                <p id="copyTelegram">点击复制ID</p>
+                <a href="https://t.me/trxyes_com" rel="noopener" target="_blank">直接打开</a>
+            </div>
+        </div>
+    </div>
+    <div id="addressQrcode">
+        <div class="qrcodeDiv">
+            <span id="qrcodeTitle">能量租赁地址二维码</span>
+            <img alt="addressImg" id="qrcodeImg" loading="lazy" src="files/energyQrcod.png"/>
+            <div class="qrcodeText">
+                <p id="saveLocal">保存到本地</p>
+                <p id="closeQrcode">关闭退出</p>
+            </div>
+        </div>
+    </div>
+    <div id="addressBalance">
+        <div class="addressBalanceDiv">
+            <p class="balanceTitle">xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            <p class="meingxiText">地址使用明细</p>
+            <div class="balanceList">
+                <p>暂无事件</p>
+            </div>
+            <div class="closeBalance">X</div>
+        </div>
+    </div>
+</div>
 <script src="files/index.js"></script>
-
-</body></html>
+</body>
+</html>
