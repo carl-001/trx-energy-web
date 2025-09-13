@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Articles & Guides — TRX Energy | trxfuel.cc</title>
+  <meta name="description" content="How-to guides, fee calculators and updates for TRX energy rental and USDT↔TRX transfers."/>
+  <link rel="canonical" href="https://www.trxfuel.cc/articles.html"/>
+  <link rel="alternate" hreflang="en" href="https://www.trxfuel.cc/articles.html"/>
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.trxfuel.cc/articles.html?lang=zh"/>
+  <link rel="alternate" hreflang="x-default" href="https://www.trxfuel.cc/articles.html"/>
+  <!-- 关键：确保所有相对资源从站点根目录解析 -->
+  <base href="/">
+
+  <!-- 你的站点样式（改为根路径） -->
+  <link rel="stylesheet" href="/files/index.css"/>
+  <link rel="stylesheet" href="/files/public.css"/>
+  <link rel="stylesheet" href="/files/smallScreen.css"/>
+
+  <!-- 列表页少量补充样式 -->
+  <style>
+    .lang-switch{position:fixed;top:12px;right:12px;z-index:9999;display:inline-flex;gap:6px;background:rgba(255,255,255,.85);border:1px solid #e5e7eb;border-radius:999px;padding:4px;box-shadow:0 1px 8px rgba(0,0,0,.05)}
+    .lang-switch button{border:0;background:transparent;padding:6px 10px;border-radius:999px;font:500 13px/1 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;cursor:pointer}
+    .lang-switch button.active{background:#111;color:#fff}
+    .blog-wrap{max-width:980px;margin:24px auto;padding:0 16px}
+    .blog-head{margin:24px 0 12px}
+    .blog-tools{display:flex;gap:8px;margin:12px 0}
+    .blog-tools input[type="search"], .blog-tools select{flex:1;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px}
+    .post-card{border:1px solid #eee;border-radius:12px;padding:16px;margin:12px 0}
+    .post-card h3{margin:0 0 6px;font-size:18px}
+    .post-card time{font-size:12px;opacity:.7}
+    .tags{font-size:12px;margin-top:8px;opacity:.85}
+  </style>
+</head>
+<body>
+
+<!-- 顶部 header（结构与首页一致） -->
+<div class="header">
+  <div class="menu elementWith">
+    <div class="logo"><img class="logo_size" loading="lazy" src="/files/logo.png" alt="logo"/></div>
+    <div class="nav">
+      <ul>
+        <li><a href="https://www.trxfuel.cc/#energyRental">Energy Rental</a></li>
+        <li><a href="https://www.trxfuel.cc/#exchange">U↔T Swap</a></li>
+        <li><a href="https://www.trxfuel.cc/#prestore">Per-Tx Plan</a></li>
+        <li><a href="https://www.trxfuel.cc/#api">Energy API</a></li>
+        <li class="apititle"><a href="https://www.trxfuel.cc/#agents">Become an Agent</a></li>
+        <li id="navArticles"><a href="/articles.html">Articles</a></li>
+        <li id="customerService"><a href="https://www.trxfuel.cc/#">Support</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="title elementWith">
+    <h1>Articles & Guides</h1>
+    <p>Practical tutorials and weekly updates for TRON energy.</p>
+  </div>
+</div>
+
+<div class="blog-wrap">
+  <div class="blog-head">
+    <div id="breadcrumb" style="opacity:.8;font-size:13px;">
+      <a href="/">trxfuel.cc</a> / <span>Articles</span>
+    </div>
+  </div>
+
+  <div class="blog-tools">
+    <input id="q" type="search" placeholder="Search titles & tags…"/>
+    <select id="tagFilter"><option value="">All tags</option></select>
+  </div>
+
+  <div id="list"></div>
+</div>
+
+<div class="footDiv">
+  <div class="safeAuthentication"><img loading="lazy" src="/files/safe.png" alt="safe"/><span>Security Verified</span></div>
+  <a href="https://www.trxfuel.cc/" target="_blank" rel="noopener">Copyright © trxfuel.cc</a>
+</div>
+
+<!-- 右上角语言切换 -->
+<div class="lang-switch" aria-label="Language Switch">
+  <button data-lang="en" class="active">EN</button>
+  <button data-lang="zh">中文</button>
+</div>
+
+<script>
+(function(){
+  // ---- 简易 i18n（与首页一致）----
+  const dict = {
+    en:{nav_energy:'Energy Rental',nav_swap:'U↔T Swap',nav_per:'Per-Tx Plan',nav_api:'Energy API',nav_agent:'Become an Agent',nav_cs:'Support',
+        h1:'Articles & Guides', p:'Practical tutorials and weekly updates for TRON energy.',
+        search:'Search titles & tags…', all:'All tags', crumb:'Articles',
+        metaTitle:'Articles & Guides — TRX Energy | trxfuel.cc',
+        metaDesc:'How-to guides, fee calculators and updates for TRX energy rental and USDT↔TRX transfers.',
+        nav_articles:'Articles'},
+    zh:{nav_energy:'能量闪租',nav_swap:'U-T闪兑',nav_per:'笔数模式',nav_api:'能量API',nav_agent:'加入代理',nav_cs:'联系客服',
+        h1:'文章与教程', p:'实用教程与每周更新，帮你省手续费、少踩坑。',
+        search:'搜索标题与标签…', all:'全部标签', crumb:'文章',
+        metaTitle:'文章与教程 — TRX 能量 | trxfuel.cc',
+        metaDesc:'TRX 能量租赁与 USDT↔TRX 转账的教程、计算与更新。',
+        nav_articles:'文章/教程'}
+  };
+  function txt(sel, s){ const el=document.querySelector(sel); if(el) el.textContent=s; }
+  function applyLang(lang){
+    const d=dict[lang]||dict.en;
+    document.documentElement.lang=(lang==='zh'?'zh':'en');
+    document.title=d.metaTitle;
+    const md=document.querySelector('meta[name="description"]'); if(md) md.setAttribute('content', d.metaDesc);
+
+    txt('.nav a[href*="#energyRental"]', d.nav_energy);
+    txt('.nav a[href*="#exchange"]', d.nav_swap);
+    txt('.nav a[href*="#prestore"]', d.nav_per);
+    txt('.nav a[href*="#api"]', d.nav_api);
+    txt('.nav .apititle a', d.nav_agent);
+    txt('#customerService a', d.nav_cs);
+    txt('#navArticles a', d.nav_articles);
+
+    txt('.title h1', d.h1);
+    txt('.title p', d.p);
+    const q=document.getElementById('q'); if(q) q.setAttribute('placeholder', d.search);
+    const tag=document.getElementById('tagFilter'); if(tag && tag.options.length) tag.options[0].text = d.all;
+
+    // 链接按语言加上 ?lang=zh
+    const art=document.querySelector('#navArticles a'); if(art) art.href = (lang==='zh')?'/articles.html?lang=zh':'/articles.html';
+    document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    const zhAlt=document.querySelector('link[hreflang="zh-Hans"]'); if(zhAlt) zhAlt.setAttribute('href','https://www.trxfuel.cc/articles.html?lang=zh');
+    localStorage.setItem('lang', lang);
+  }
+  function currentLang(){
+    const url=new URL(location.href);
+    const p=url.searchParams.get('lang');
+    const stored=localStorage.getItem('lang');
+    const isZh=(navigator.language||'en').toLowerCase().startsWith('zh');
+    // 永远默认英文，改成：const lang=p||stored||'en';
+    const lang=p||stored||(isZh?'zh':'en');
+    return lang;
+  }
+
+  // ---- 列表渲染 ----
+  const state={lang:'en', posts:[]};
+  const listEl=document.getElementById('list');
+  const qEl=document.getElementById('q');
+  const tagEl=document.getElementById('tagFilter');
+
+  function render(){
+    const q=(qEl.value||'').toLowerCase();
+    const tag=tagEl.value||'';
+    listEl.innerHTML='';
+
+    // tag 聚合
+    const tags=new Set();
+    state.posts.forEach(p=> (p.tags||[]).forEach(t=> tags.add(t)));
+    tagEl.innerHTML = `<option value="">${dict[state.lang].all}</option>` + Array.from(tags).sort().map(t=>`<option ${t===tag?'selected':''}>${t}</option>`).join('');
+
+    state.posts
+      .filter(p=>p.lang===state.lang)
+      .filter(p=>!q || p.title.toLowerCase().includes(q) || (p.tags||[]).join(' ').toLowerCase().includes(q))
+      .filter(p=>!tag || (p.tags||[]).includes(tag))
+      .sort((a,b)=> new Date(b.date)-new Date(a.date))
+      .forEach(p=>{
+        const card=document.createElement('div');
+        card.className='post-card';
+        card.innerHTML=`
+          <h3><a href="/post.html?slug=${encodeURIComponent(p.slug)}&lang=${p.lang}">${p.title}</a></h3>
+          <time datetime="${p.date}">${new Date(p.date).toLocaleDateString()}</time>
+          <p style="margin:8px 0 0">${p.excerpt||''}</p>
+          <div class="tags">${(p.tags||[]).map(t=>'#'+t).join(' ')}</div>
+        `;
+        listEl.appendChild(card);
+      });
+  }
+
+  // 初始化
+  state.lang = currentLang();
+  applyLang(state.lang);
+  fetch('/posts/posts.json').then(r=>r.json()).then(js=>{ state.posts=js; render(); });
+  qEl.addEventListener('input', render);
+  tagEl.addEventListener('change', render);
+
+  document.addEventListener('click', (e)=>{
+    const b=e.target.closest('.lang-switch button');
+    if(!b) return;
+    const lang=b.dataset.lang;
+    const url=new URL(location.href);
+    if(lang==='zh') url.searchParams.set('lang','zh'); else url.searchParams.delete('lang');
+    history.replaceState(null,'',url.toString());
+    state.lang=lang; applyLang(lang); render();
+  });
+})();
+</script>
+</body>
+</html>
