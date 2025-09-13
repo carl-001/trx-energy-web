@@ -9,39 +9,38 @@
   <link rel="alternate" id="altEn" hreflang="en" href=""/>
   <link rel="alternate" id="altZh" hreflang="zh-Hans" href=""/>
   <script type="application/ld+json" id="ld"></script>
-  <!-- 关键：从根目录解析资源 -->
-  <base href="/">
 
-  <!-- 你的站点样式（根路径） -->
-  <link rel="stylesheet" href="/files/index.css"/>
-  <link rel="stylesheet" href="/files/public.css"/>
-  <link rel="stylesheet" href="/files/smallScreen.css"/>
+  <!-- 站点样式：相对路径 -->
+  <link rel="stylesheet" href="files/index.css"/>
+  <link rel="stylesheet" href="files/public.css"/>
+  <link rel="stylesheet" href="files/smallScreen.css"/>
 
   <style>
     .lang-switch{position:fixed;top:12px;right:12px;z-index:9999;display:inline-flex;gap:6px;background:rgba(255,255,255,.85);border:1px solid #e5e7eb;border-radius:999px;padding:4px;box-shadow:0 1px 8px rgba(0,0,0,.05)}
-    .lang-switch button{border:0;background:transparent;padding:6px 10px;border-radius:999px;font:500 13px/1 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;cursor:pointer}
+    .lang-switch button{border:0;background:transparent;padding:6px 10px;border-radius:999px;font:500 13px/1 system-ui;cursor:pointer}
     .lang-switch button.active{background:#111;color:#fff}
     .article-wrap{max-width:980px;margin:24px auto;padding:0 16px}
     .article-wrap h1{margin:16px 0 8px}
     .article-wrap .meta{opacity:.7;font-size:13px;margin-bottom:16px}
     .article-wrap img{max-width:100%;height:auto;border-radius:8px}
     .prevnext{display:flex;justify-content:space-between;margin:24px 0}
+    .error{background:#fff3f3;border:1px solid #f3d6d6;color:#b00020;padding:12px;border-radius:8px;margin-top:12px}
   </style>
 </head>
 <body>
-
+<!-- 顶部（与你首页风格一致，全部相对链接） -->
 <div class="header">
   <div class="menu elementWith">
-    <div class="logo"><img class="logo_size" loading="lazy" src="/files/logo.png" alt="logo"/></div>
+    <div class="logo"><img class="logo_size" loading="lazy" src="files/logo.png" alt="logo"/></div>
     <div class="nav">
       <ul>
-        <li><a href="https://www.trxfuel.cc/#energyRental">Energy Rental</a></li>
-        <li><a href="https://www.trxfuel.cc/#exchange">U↔T Swap</a></li>
-        <li><a href="https://www.trxfuel.cc/#prestore">Per-Tx Plan</a></li>
-        <li><a href="https://www.trxfuel.cc/#api">Energy API</a></li>
-        <li class="apititle"><a href="https://www.trxfuel.cc/#agents">Become an Agent</a></li>
-        <li id="navArticles"><a href="/articles.html">Articles</a></li>
-        <li id="customerService"><a href="https://www.trxfuel.cc/#">Support</a></li>
+        <li><a href="index.html#energyRental">Energy Rental</a></li>
+        <li><a href="index.html#exchange">U↔T Swap</a></li>
+        <li><a href="index.html#prestore">Per-Tx Plan</a></li>
+        <li><a href="index.html#api">Energy API</a></li>
+        <li class="apititle"><a href="index.html#agents">Become an Agent</a></li>
+        <li id="navArticles"><a href="articles.html">Articles</a></li>
+        <li id="customerService"><a href="index.html#">Support</a></li>
       </ul>
     </div>
   </div>
@@ -54,11 +53,13 @@
 
 <div class="article-wrap">
   <div id="breadcrumb" style="opacity:.8;font-size:13px;">
-    <a href="/">trxfuel.cc</a> / <a href="/articles.html">Articles</a>
+    <a href="index.html">trxfuel.cc</a> / <a href="articles.html">Articles</a>
   </div>
 
   <div class="meta"><time id="date"></time> • <span id="tags"></span></div>
   <article id="content"></article>
+  <div id="msg" class="error" style="display:none"></div>
+
   <div class="prevnext">
     <a id="prev" href="#"></a>
     <a id="next" href="#"></a>
@@ -66,8 +67,8 @@
 </div>
 
 <div class="footDiv">
-  <div class="safeAuthentication"><img loading="lazy" src="/files/safe.png" alt="safe"/><span>Security Verified</span></div>
-  <a href="https://www.trxfuel.cc/" target="_blank" rel="noopener">Copyright © trxfuel.cc</a>
+  <div class="safeAuthentication"><img loading="lazy" src="files/safe.png" alt="safe"/><span>Security Verified</span></div>
+  <a href="index.html" target="_blank" rel="noopener">Copyright © trxfuel.cc</a>
 </div>
 
 <div class="lang-switch" aria-label="Language Switch">
@@ -77,16 +78,17 @@
 
 <script>
 (function(){
+  // 多语言（与首页一致）
   const DICT = {
-    en:{nav_energy:'Energy Rental',nav_swap:'U↔T Swap',nav_per:'Per-Tx Plan',nav_api:'Energy API',nav_agent:'Become an Agent',nav_cs:'Support', nav_articles:'Articles', sub:'Actionable tips for TRON energy.'},
-    zh:{nav_energy:'能量闪租',nav_swap:'U-T闪兑',nav_per:'笔数模式',nav_api:'能量API',nav_agent:'加入代理',nav_cs:'联系客服', nav_articles:'文章/教程', sub:'TRON 能量的实用技巧与教程。'}
+    en:{nav_energy:'Energy Rental',nav_swap:'U↔T Swap',nav_per:'Per-Tx Plan',nav_api:'Energy API',nav_agent:'Become an Agent',nav_cs:'Support', nav_articles:'Articles', sub:'Actionable tips for TRON energy.', notFound:'Not found', loadErr:'Failed to load posts index. Make sure posts/posts.json exists and paths are correct.'},
+    zh:{nav_energy:'能量闪租',nav_swap:'U-T闪兑',nav_per:'笔数模式',nav_api:'能量API',nav_agent:'加入代理',nav_cs:'联系客服', nav_articles:'文章/教程', sub:'TRON 能量的实用技巧与教程。', notFound:'未找到文章', loadErr:'文章索引加载失败：请确认 posts/posts.json 存在且路径正确。'}
   };
   function t(sel, s){ const el=document.querySelector(sel); if(el) el.textContent=s; }
   function getLang(){
-    const url=new URL(location.href); const p=url.searchParams.get('lang');
-    const stored=localStorage.getItem('lang'); const isZh=(navigator.language||'en').toLowerCase().startsWith('zh');
-    // 想永远默认英文就改成：return p||stored||'en';
-    return p||stored||(isZh?'zh':'en');
+    const u=new URL(location.href), p=u.searchParams.get('lang');
+    const stored=localStorage.getItem('lang');
+    const isZh=(navigator.language||'en').toLowerCase().startsWith('zh');
+    return p||stored||(isZh?'zh':'en'); // 永远默认英文就改成 p||stored||'en'
   }
   function applyLang(lang){
     const d=DICT[lang]||DICT.en;
@@ -99,10 +101,11 @@
     t('#customerService a', d.nav_cs);
     t('#navArticles a', d.nav_articles);
     t('#sub', d.sub);
-    const art=document.querySelector('#navArticles a'); if(art) art.href=(lang==='zh')?'/articles.html?lang=zh':'/articles.html';
+    const art=document.querySelector('#navArticles a'); if(art) art.href=(lang==='zh')?'articles.html?lang=zh':'articles.html';
     document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
     localStorage.setItem('lang', lang);
   }
+  function showErr(msg){ const el=document.getElementById('msg'); el.style.display='block'; el.textContent=msg; }
 
   async function load(){
     const url=new URL(location.href);
@@ -110,36 +113,59 @@
     const lang=url.searchParams.get('lang')||getLang();
     applyLang(lang);
 
-    const posts=await (await fetch('/posts/posts.json')).json();
-    const idx=posts.findIndex(p=>p.slug===slug && p.lang===lang);
-    const post=posts[idx];
-    if(!post){ t('#h1','Not found'); return; }
+    // 1) 读取 posts/posts.json（相对路径，与你目录一致）
+    let posts;
+    try{
+      const res = await fetch('posts/posts.json', {cache:'no-store'});
+      if(!res.ok) throw new Error('HTTP '+res.status+' '+res.statusText);
+      const txt = await res.text();
+      if (txt.trim().startsWith('<')) throw new Error('Got HTML instead of JSON (path wrong?)');
+      posts = JSON.parse(txt);
+    }catch(err){
+      console.error('[post.html] posts.json load error:', err);
+      showErr((DICT[lang]||DICT.en).loadErr + ' (path: posts/posts.json; ' + err.message + ')');
+      t('#h1',(DICT[lang]||DICT.en).notFound);
+      return;
+    }
 
-    // meta
+    // 2) 找文章（若没传 slug，就默认该语言的第一篇）
+    let idx = posts.findIndex(p=>p.slug===slug && p.lang===lang);
+    if(idx===-1 && !slug) idx = posts.findIndex(p=>p.lang===lang);
+    const post = posts[idx];
+    if(!post){ t('#h1',(DICT[lang]||DICT.en).notFound); return; }
+
+    // 3) meta
     document.title = post.title + ' | trxfuel.cc';
     document.getElementById('t').textContent = document.title;
     document.getElementById('d').setAttribute('content', post.excerpt||'');
-    const canon = location.origin + '/post.html?slug='+encodeURIComponent(slug)+'&lang='+lang;
+    const canon = 'post.html?slug='+encodeURIComponent(post.slug)+'&lang='+lang;
     document.getElementById('canon').setAttribute('href', canon);
-    document.getElementById('altEn').setAttribute('href', location.origin + '/post.html?slug='+encodeURIComponent(slug)+'&lang=en');
-    document.getElementById('altZh').setAttribute('href', location.origin + '/post.html?slug='+encodeURIComponent(slug)+'&lang=zh');
+    document.getElementById('altEn').setAttribute('href', 'post.html?slug='+encodeURIComponent(post.slug)+'&lang=en');
+    document.getElementById('altZh').setAttribute('href', 'post.html?slug='+encodeURIComponent(post.slug)+'&lang=zh');
 
-    // body
+    // 4) 正文
     t('#h1', post.title);
     t('#date', new Date(post.date).toLocaleDateString());
     t('#tags', (post.tags||[]).join(', '));
-    const html = await (await fetch('/posts/'+post.file)).text();
-    document.getElementById('content').innerHTML = html;
+    try{
+      const bodyRes = await fetch('posts/' + post.file, {cache:'no-store'});
+      if(!bodyRes.ok) throw new Error('HTTP '+bodyRes.status);
+      const html = await bodyRes.text();
+      document.getElementById('content').innerHTML = html;
+    }catch(err){
+      console.error('[post.html] article load error:', err);
+      showErr('Failed to load article body: posts/'+post.file+' ('+err.message+')');
+    }
 
-    // prev/next（按日期排序）
+    // 5) 上一/下一篇
     const siblings = posts.filter(p=>p.lang===lang).sort((a,b)=> new Date(a.date)-new Date(b.date));
-    const pos = siblings.findIndex(p=>p.slug===slug);
+    const pos = siblings.findIndex(p=>p.slug===post.slug);
     const prev = siblings[pos-1], next = siblings[pos+1];
     const prevEl=document.getElementById('prev'), nextEl=document.getElementById('next');
-    if(prev){ prevEl.textContent='← '+prev.title; prevEl.href='/post.html?slug='+encodeURIComponent(prev.slug)+'&lang='+lang; } else prevEl.remove();
-    if(next){ nextEl.textContent=next.title+' →'; nextEl.href='/post.html?slug='+encodeURIComponent(next.slug)+'&lang='+lang; } else nextEl.remove();
+    if(prev){ prevEl.textContent='← '+prev.title; prevEl.href='post.html?slug='+encodeURIComponent(prev.slug)+'&lang='+lang; } else prevEl.remove();
+    if(next){ nextEl.textContent= next.title+' →'; nextEl.href='post.html?slug='+encodeURIComponent(next.slug)+'&lang='+lang; } else nextEl.remove();
 
-    // 结构化数据
+    // 6) 结构化数据
     const ld={"@context":"https://schema.org","@type":"Article","headline":post.title,"datePublished":post.date,"inLanguage":lang,"author":{"@type":"Organization","name":"trxfuel.cc"},"mainEntityOfPage":canon};
     document.getElementById('ld').textContent = JSON.stringify(ld);
   }
@@ -148,10 +174,10 @@
   document.addEventListener('click', (e)=>{
     const b=e.target.closest('.lang-switch button'); if(!b) return;
     const lang=b.dataset.lang;
-    const url=new URL(location.href);
-    if(lang==='zh') url.searchParams.set('lang','zh'); else url.searchParams.delete('lang');
-    history.replaceState(null,'',url.toString());
-    load(); // 重新加载当前 slug 的另一语种
+    const u=new URL(location.href);
+    if(lang==='zh') u.searchParams.set('lang','zh'); else u.searchParams.delete('lang');
+    history.replaceState(null,'',u.toString());
+    load();
   });
 })();
 </script>

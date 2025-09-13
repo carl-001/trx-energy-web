@@ -102,7 +102,7 @@
                 <li><a href="https://www.trxfuel.cc/#api">Energy API</a></li>
                 <li class="apititle"><a href="https://www.trxfuel.cc/#agents">Become an Agent</a></li>
                 <li id="customerService"><a href="https://www.trxfuel.cc/#">Support</a></li>
-                <li id="navArticles"><a href="/articles.html">Articles</a></li>
+                <li id="navArticles"><a href="articles.html">Articles</a></li>
 
             </ul>
         </div>
@@ -739,7 +739,7 @@
     // 3) 按语言修正链接（中文跳到 ?lang=zh）
     const art = document.querySelector('#navArticles a');
     if (art) {
-      art.href = (lang === 'zh') ? '/articles.html?lang=zh' : '/articles.html';
+       art.href = (lang === 'zh') ? 'articles.html?lang=zh' : 'articles.html';
     }
 
     // 4) 语言按钮激活态/本地存储（保持你现有逻辑）

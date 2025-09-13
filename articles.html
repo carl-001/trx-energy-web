@@ -162,7 +162,7 @@
         const card=document.createElement('div');
         card.className='post-card';
         card.innerHTML=`
-          <h3><a href="/post.html?slug=${encodeURIComponent(p.slug)}&lang=${p.lang}">${p.title}</a></h3>
+          <h3><a href="post.html?slug=${encodeURIComponent(p.slug)}&lang=${p.lang}">${p.title}</a></h3>
           <time datetime="${p.date}">${new Date(p.date).toLocaleDateString()}</time>
           <p style="margin:8px 0 0">${p.excerpt||''}</p>
           <div class="tags">${(p.tags||[]).map(t=>'#'+t).join(' ')}</div>
