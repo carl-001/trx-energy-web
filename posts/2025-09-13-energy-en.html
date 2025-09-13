@@ -1,0 +1,66 @@
+<style>
+.article-body{font:16px/1.75 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;color:#111}
+.article-body h2{margin:24px 0 8px;font-size:22px}
+.article-body h2::before{content:"";display:inline-block;width:6px;height:16px;background:#10b981;border-radius:2px;margin-right:8px;vertical-align:baseline}
+.article-body p{margin:8px 0}
+.article-body ul,.article-body ol{margin:8px 0 8px 1.25rem}
+.article-body a{color:#0a58ca;text-decoration:none;border-bottom:1px dotted rgba(10,88,202,.35)}
+.article-body a:hover{border-bottom-color:transparent}
+.article-body table{width:100%;border-collapse:collapse;margin:10px 0;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+.article-body th,.article-body td{padding:10px 12px;border-bottom:1px solid #eef2f7}
+.article-body thead th{background:#f8fafc;text-align:left;font-weight:600}
+.article-body tbody tr:nth-child(even){background:#fafafa}
+.article-body pre{background:#f6f8fa;color:#111;padding:12px 14px;border-radius:10px;overflow:auto;border:1px solid #e5e7eb}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.article-body .note{background:#f8fff2;border-left:4px solid #16a34a;padding:10px 12px;border-radius:8px}
+</style>
+
+<div class="article-body">
+  <h2>Quick Answer</h2>
+  <p><strong>65,000 Energy = 1.5 TRX.</strong> A typical TRC-20 <strong>USDT</strong> transfer uses about <strong>~65,000 Energy</strong>, so the energy fee is <strong>1.5 TRX</strong>. Adding a small bandwidth burn (~<strong>0.1 TRX</strong>), total per transfer is roughly <strong>~1.6 TRX</strong>.</p>
+
+  <h2>Energy &amp; Bandwidth Cheatsheet</h2>
+  <table>
+    <thead>
+    <tr><th>Scenario</th><th>Energy</th><th>Approx. Cost</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Standard USDT transfer</td>
+      <td>≈ 65,000</td>
+      <td><strong>~1.6 TRX</strong> (1.5 energy + ~0.1 bandwidth)</td>
+      <td>Most wallets/contracts fall here.</td>
+    </tr>
+    <tr>
+      <td>First transfer to inactive / empty address</td>
+      <td>≈ 131,000</td>
+      <td><strong>~3.1 TRX</strong> (≈3.02 energy + ~0.1 bandwidth)</td>
+      <td>Allowance init / account activation can double energy once.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h2>Keep each transfer ≈ 1.6 TRX</h2>
+  <ol>
+    <li>Rent energy before sending (or use the per-transaction plan).</li>
+    <li>Keep a small TRX buffer for bandwidth (or freeze a bit of TRX).</li>
+    <li>Avoid sending to brand-new addresses when possible.</li>
+  </ol>
+
+  <h2>Calculator</h2>
+  <p><strong>Unit price:</strong> <code>1.5 / 65,000 ≈ 0.0000231 TRX per Energy</code></p>
+  <pre><code>Standard tx (≈65,000 E)
+Energy: 65,000 × 0.0000231 ≈ 1.50 TRX
+Bandwidth: ~0.10 TRX
+Total: ≈ 1.60 TRX
+
+First-time / activation (≈131,000 E)
+Energy: 131,000 × 0.0000231 ≈ 3.02 TRX
+Bandwidth: ~0.10 TRX
+Total: ≈ 3.12 TRX
+</code></pre>
+
+  <div class="note">
+    Actual usage varies by contract and wallet (~±10–20%). If you often hit new/empty wallets, consider pre-activation or batching.
+  </div>
+</div>

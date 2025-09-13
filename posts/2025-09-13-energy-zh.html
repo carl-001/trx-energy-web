@@ -1,0 +1,66 @@
+<style>
+.article-body{font:16px/1.75 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;color:#111}
+.article-body h2{margin:24px 0 8px;font-size:22px}
+.article-body h2::before{content:"";display:inline-block;width:6px;height:16px;background:#10b981;border-radius:2px;margin-right:8px;vertical-align:baseline}
+.article-body p{margin:8px 0}
+.article-body ul,.article-body ol{margin:8px 0 8px 1.25rem}
+.article-body a{color:#0a58ca;text-decoration:none;border-bottom:1px dotted rgba(10,88,202,.35)}
+.article-body a:hover{border-bottom-color:transparent}
+.article-body table{width:100%;border-collapse:collapse;margin:10px 0;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+.article-body th,.article-body td{padding:10px 12px;border-bottom:1px solid #eef2f7}
+.article-body thead th{background:#f8fafc;text-align:left;font-weight:600}
+.article-body tbody tr:nth-child(even){background:#fafafa}
+.article-body pre{background:#f6f8fa;color:#111;padding:12px 14px;border-radius:10px;overflow:auto;border:1px solid #e5e7eb}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.article-body .note{background:#f8fff2;border-left:4px solid #16a34a;padding:10px 12px;border-radius:8px}
+</style>
+
+<div class="article-body">
+  <h2>速读答案</h2>
+  <p><strong>65,000 能量 = 1.5 TRX。</strong> 标准 TRC-20 <strong>USDT</strong> 转账大约消耗 <strong>~65,000 能量</strong>，能量费 <strong>1.5 TRX</strong>；再加上少量带宽（约 <strong>0.1 TRX</strong>），单笔总成本大约 <strong>~1.6 TRX</strong>。</p>
+
+  <h2>能量 / 带宽速查</h2>
+  <table>
+    <thead>
+    <tr><th>场景</th><th>能量</th><th>预估费用</th><th>说明</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>普通 USDT 转账</td>
+      <td>≈ 65,000</td>
+      <td><strong>~1.6 TRX</strong>（1.5 能量 + ~0.1 带宽）</td>
+      <td>大多数钱包/合约属于此范围。</td>
+    </tr>
+    <tr>
+      <td>首次转到未激活 / 空钱包</td>
+      <td>≈ 131,000</td>
+      <td><strong>~3.1 TRX</strong>（≈3.02 能量 + ~0.1 带宽）</td>
+      <td>首次授权/激活可能让能量翻倍一次。</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h2>把每笔做到 ~1.6 TRX</h2>
+  <ol>
+    <li>先租能（或使用“笔数模式”）。</li>
+    <li>地址里留少量 TRX 用于带宽（或冻结一点 TRX）。</li>
+    <li>尽量避免向全新地址首转。</li>
+  </ol>
+
+  <h2>估算</h2>
+  <p><strong>等效单价：</strong> <code>1.5 / 65,000 ≈ 0.0000231 TRX/能量</code></p>
+  <pre><code>标准转账（≈65,000 能量）
+能量：65,000 × 0.0000231 ≈ 1.50 TRX
+带宽：~0.10 TRX
+合计：≈ 1.60 TRX
+
+首次/激活（≈131,000 能量）
+能量：131,000 × 0.0000231 ≈ 3.02 TRX
+带宽：~0.10 TRX
+合计：≈ 3.12 TRX
+</code></pre>
+
+  <div class="note">
+    实际消耗会因合约/钱包不同略有波动（约 ±10–20%）。如果经常给“新钱包”转账，可考虑预激活或批量处理，降低一次性高峰。
+  </div>
+</div>
