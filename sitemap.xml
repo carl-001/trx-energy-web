@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-    <!-- 首页 -->
     <url>
         <loc>https://trxfuel.cc/</loc>
         <lastmod>2025-09-15</lastmod>
@@ -11,7 +10,6 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://trxfuel.cc/"/>
     </url>
 
-    <!-- 文章列表页 -->
     <url>
         <loc>https://trxfuel.cc/articles.html</loc>
         <lastmod>2025-09-15</lastmod>
@@ -19,7 +17,6 @@
         <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trxfuel.cc/articles.html?lang=zh"/>
     </url>
 
-    <!-- 文章详情：同一篇内容的中英互链（slug = tron-energy-fee-basics） -->
     <url>
         <loc>https://trxfuel.cc/post.html?slug=tron-energy-fee-basics&amp;lang=en</loc>
         <lastmod>2025-09-13</lastmod>
@@ -37,5 +34,4 @@
         <xhtml:link rel="alternate" hreflang="zh-Hans"
                     href="https://trxfuel.cc/post.html?slug=tron-energy-fee-basics&amp;lang=zh"/>
     </url>
-
 </urlset>
