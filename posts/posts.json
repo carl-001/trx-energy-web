@@ -16,5 +16,23 @@
     "excerpt": "能量 vs 带宽速查，设置正确可每笔省下约 10 TRX。",
     "tags": ["教程","手续费","USDT","能量"],
     "file": "2025-09-13-energy-zh.html"
+  },
+  {
+    "slug": "tron-energy-price-drop-2025",
+    "title": "TRON Energy Price Drop: Why Renting Is Cheaper Now",
+    "date": "2025-09-18",
+    "lang": "en",
+    "excerpt": "Energy rental prices have plunged. What happened, what it means for USDT transfers, and how to benefit safely.",
+    "tags": ["market","fees","USDT","energy"],
+    "file": "2025-09-18-energy-drop-en.html"
+  },
+  {
+    "slug": "tron-energy-price-drop-2025",
+    "title": "波场能量大跳水：为何变便宜了？怎么用得更省",
+    "date": "2025-09-18",
+    "lang": "zh",
+    "excerpt": "近期能量租赁价格明显走低。原因、影响与省费技巧，一文看懂。",
+    "tags": ["行情","手续费","USDT","能量"],
+    "file": "2025-09-18-energy-drop-zh.html"
   }
 ]
