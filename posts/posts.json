@@ -34,5 +34,27 @@
     "excerpt": "近期能量租赁价格明显走低。原因、影响与省费技巧，一文看懂。",
     "tags": ["行情","手续费","USDT","能量"],
     "file": "2025-09-18-energy-drop-zh.html"
+  },
+  {
+    "slug": "tron-energy-intro",
+    "lang": "zh",
+    "title": "波场与波场能量（TRON Energy）新手入门：省费实战与计算器",
+    "description": "用通俗结构讲清波场、能量与带宽，USDT 转账大概需要多少能量与 TRX，以及如何通过租能/冻结 TRX 降本。内含前端计算器。",
+    "cover": "/assets/covers/tron-energy.png",
+    "date": "2025-09-20",
+    "readingMinutes": 4,
+    "url": "/posts/2025-09-20-post-tron-energy.zh.html",
+    "tags": ["TRON", "USDT", "tron energy", "能量", "带宽", "手续费"]
+  },
+  {
+    "slug": "tron-energy-intro",
+    "lang": "en",
+    "title": "TRON & TRON Energy 101: Costs, Tips, and a Handy Calculator",
+    "description": "A practical guide to TRON, tron energy vs bandwidth, typical USDT transfer costs, and how freezing or renting energy cuts fees. Includes a browser-side calculator.",
+    "cover": "/assets/covers/tron-energy.png",
+    "date": "2025-09-20",
+    "readingMinutes": 4,
+    "url": "/posts/2025-09-20-post-tron-energy.en.html",
+    "tags": ["TRON", "USDT", "tron energy", "Energy", "Bandwidth", "Fees"]
   }
 ]

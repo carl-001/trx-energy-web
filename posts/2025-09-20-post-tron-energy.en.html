@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TRON & TRON Energy 101: Costs, Tips, and a Handy Calculator</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="A clear intro to TRON, tron energy vs bandwidth, typical energy for a TRC-20 transfer, and how freezing/renting energy reduces fees. Includes a browser-side calculator.">
+    <link rel="canonical" href="/posts/2025-09-20-post-tron-energy.en.html">
+    <style>
+    .article-body{font:16px/1.75 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;color:#111}
+    .article-body h1{font-size:26px;margin:10px 0 12px}
+    .article-body h2{margin:24px 0 8px;font-size:22px}
+    .article-body h2::before{content:"";display:inline-block;width:6px;height:16px;background:#10b981;border-radius:2px;margin-right:8px;vertical-align:baseline}
+    .article-body p{margin:8px 0}
+    .article-body ul,.article-body ol{margin:8px 0 8px 1.25rem}
+    .article-body a{color:#0a58ca;text-decoration:none;border-bottom:1px dotted rgba(10,88,202,.35)}
+    .article-body a:hover{border-bottom-color:transparent}
+    .article-body table{width:100%;border-collapse:collapse;margin:10px 0;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+    .article-body th,.article-body td{padding:10px 12px;border-bottom:1px solid #eef2f7}
+    .article-body thead th{background:#f8fafc;text-align:left;font-weight:600}
+    .article-body tbody tr:nth-child(even){background:#fafafa}
+    .article-body pre{background:#f6f8fa;color:#111;padding:12px 14px;border-radius:10px;overflow:auto;border:1px solid #e5e7eb}
+    .article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .article-body .note{background:#f8fff2;border-left:4px solid #16a34a;padding:10px 12px;border-radius:8px}
+    .muted{color:#6b7280}
+    .calc{display:grid;gap:.5rem;grid-template-columns:1fr 1fr;align-items:center;margin:12px 0;padding:12px;border:1px dashed #e5e7eb;border-radius:10px;background:#fcfcff}
+    .calc label{font-size:14px;color:#374151}
+    .calc input{width:100%;padding:8px 10px;border:1px solid #e5e7eb;border-radius:8px}
+    .calc .full{grid-column:1/-1}
+    .kpi{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi div{background:#fff;border:1px solid #eef2f7;border-radius:10px;padding:8px 10px}
+  </style>
+</head>
+<body>
+<div class="article-body">
+
+    <h1>TRON & <em>tron energy</em> 101: Costs, Tips, and a Handy Calculator</h1>
+    <p class="muted">~4 min read · For beginners and high-volume users</p>
+
+    <h2>1) What is TRON?</h2>
+    <p>TRON is a smart-contract blockchain best known for TRC-20 USDT transfers. Every on-chain action consumes two resources: <strong>Energy</strong> and <strong>Bandwidth</strong>. In short, <em>energy</em> pays for contract execution (e.g., TRC-20 transfers), while <em>bandwidth</em> covers packaging and transmission.</p>
+
+    <h2>2) Energy vs Bandwidth: what do I actually pay?</h2>
+    <ul>
+        <li><strong>Energy</strong>: obtained by freezing TRX or renting from providers. If you lack energy, fees are deducted in TRX — this is the essence of <em>tron energy</em> cost.</li>
+        <li><strong>Bandwidth</strong>: small daily free quota; extra usage burns a tiny amount of TRX per byte.</li>
+    </ul>
+    <div class="note">
+        Rule of thumb: <strong>a typical TRC-20 USDT transfer ≈ 65,000 energy</strong> plus a bit of bandwidth. With common assumptions (65,000 energy ≈ 1.5 TRX, bandwidth ≈ 0.1 TRX), the total is about <strong>~1.6 TRX</strong>.
+    </div>
+
+    <h2>3) Why prepare or rent energy?</h2>
+    <p>Pre-provisioning energy (freeze or rent) cuts costs drastically; high-volume users can stabilize single-tx cost around ~1.6 TRX. Avoid first-time transfers to empty addresses and repeated approvals to keep consumption low.</p>
+
+    <h2>4) Cost examples</h2>
+    <table>
+        <thead><tr><th>Scenario</th><th>Energy Needed</th><th>Est. Total</th><th>Notes</th></tr></thead>
+        <tbody>
+        <tr><td>Regular USDT transfer</td><td>≈ 65,000</td><td><strong>~1.6 TRX</strong></td><td>~1.5 TRX (energy) + 0.1 TRX (bandwidth)</td></tr>
+        <tr><td>First transfer to empty wallet</td><td>≈ 131,000</td><td><strong>~3.1 TRX</strong></td><td>Initial approval/activation doubles energy temporarily</td></tr>
+        </tbody>
+    </table>
+
+    <h2>5) Mini tool: estimate your per-tx cost</h2>
+    <div class="calc" id="calc">
+        <label>Energy needed (per tx)</label>
+        <input id="energy" type="number" min="1" step="1000" value="65000">
+        <label>Energy price (TRX / 65,000 energy)</label>
+        <input id="pricePer65k" type="number" min="0" step="0.1" value="1.5">
+        <label>Bandwidth TRX (est.)</label>
+        <input id="bandwidthTrx" type="number" min="0" step="0.01" value="0.1">
+        <div class="full kpi" id="kpi"></div>
+        <div class="full muted">Set energy price to your current rental quote to simulate real-world costs.</div>
+    </div>
+
+    <h2>6) Common ways to get energy</h2>
+    <ol>
+        <li><strong>Freeze TRX</strong>: stable but locks liquidity.</li>
+        <li><strong>Rent energy</strong>: flexible by day/volume — ideal for bursts and high volume.</li>
+        <li><strong>Optimize flows</strong>: reduce repeated approvals, avoid first-time empty-addr transfers, batch when possible.</li>
+    </ol>
+
+    <h2>7) Minimal estimator for front-end / back-end</h2>
+    <pre><code>function estimateTrxCost({ energyNeeded = 65000, pricePer65k = 1.5, bandwidthTrx = 0.1 }) {
+  const energyTrx = (energyNeeded / 65000) * pricePer65k;
+  const total = energyTrx + bandwidthTrx;
+  return { energyTrx, bandwidthTrx, total };
+}</code></pre>
+
+    <h2>8) Takeaways</h2>
+    <p>Remember: <strong>provision energy first</strong> (freeze/rent), <strong>keep some TRX</strong> for bandwidth, and <strong>avoid first-time empty-addr transfers</strong>. With this calculator and a clear grasp of <em>tron energy</em>, you can keep fees predictable and lean.</p>
+
+</div>
+
+<script>
+  (function () {
+    const $ = (id) => document.getElementById(id);
+    const energy = $("energy"), price = $("pricePer65k"), bw = $("bandwidthTrx"), kpi = $("kpi");
+    const fmt = (n)=> (Math.round(n*1000)/1000).toString();
+    function calc(){
+      const e = Math.max(1, Number(energy.value||65000));
+      const p = Math.max(0, Number(price.value||1.5));
+      const b = Math.max(0, Number(bw.value||0.1));
+      const energyTrx = (e/65000)*p, total = energyTrx + b;
+      kpi.innerHTML =
+        '<div><b>Energy cost</b><br>'+fmt(energyTrx)+' TRX</div>'+
+        '<div><b>Bandwidth cost</b><br>'+fmt(b)+' TRX</div>'+
+        '<div><b>Total</b><br>'+fmt(total)+' TRX</div>';
+    }
+    ["input","change"].forEach(ev=>{energy.addEventListener(ev,calc);price.addEventListener(ev,calc);bw.addEventListener(ev,calc);});
+    calc();
+  })();
+</script>
+</body>
+</html>
