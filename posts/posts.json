@@ -43,7 +43,7 @@
     "cover": "/assets/covers/tron-energy.png",
     "date": "2025-09-20",
     "readingMinutes": 4,
-    "url": "/posts/2025-09-20-post-tron-energy.zh.html",
+    "file": "2025-09-20-post-tron-energy.zh.html",
     "tags": ["TRON", "USDT", "tron energy", "能量", "带宽", "手续费"]
   },
   {
@@ -54,7 +54,7 @@
     "cover": "/assets/covers/tron-energy.png",
     "date": "2025-09-20",
     "readingMinutes": 4,
-    "url": "/posts/2025-09-20-post-tron-energy.en.html",
+    "file": "2025-09-20-post-tron-energy.en.html",
     "tags": ["TRON", "USDT", "tron energy", "Energy", "Bandwidth", "Fees"]
   }
 ]
