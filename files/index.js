@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
        })
        document.getElementById("rqCodeicon2").addEventListener("click", function () {
               var imgElement = document.getElementById('qrcodeImg');
-              var newImageUrl = './Image/energyQrcod.png';
+              var newImageUrl = './files/energyQrcod.png';
               imgElement.src = newImageUrl;
               var spanElement = document.getElementById('qrcodeTitle');
               var newText = '能量租赁地址二维码';
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
        })
        document.getElementById("rqCodeicon4").addEventListener("click", function () {
               var imgElement = document.getElementById('qrcodeImg');
-              var newImageUrl = './Image/energyQrcod.png';
+              var newImageUrl = './files/energyQrcod.png';
               imgElement.src = newImageUrl;
               var spanElement = document.getElementById('qrcodeTitle');
               var newText = '预存扣费模式地址二维码';
