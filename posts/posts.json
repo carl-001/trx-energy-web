@@ -56,5 +56,27 @@
     "readingMinutes": 4,
     "file": "2025-09-20-post-tron-energy.en.html",
     "tags": ["TRON", "USDT", "tron energy", "Energy", "Bandwidth", "Fees"]
+  },
+  {
+    "slug": "trx20-energy-checker",
+    "lang": "zh",
+    "title": "TRX-20 Energy Checker：一键估算能量成本（含计算器）",
+    "description": "用 trx-20 energy checker 思路，快速估算 TRC-20 转账能量与 TRX 成本，附可嵌入的前端计算器与省费建议。",
+    "cover": "/assets/covers/tron-energy.png",
+    "date": "2025-09-22",
+    "readingMinutes": 3,
+    "file": "2025-09-22-trx20-energy-checker.zh.html",
+    "tags": ["TRON", "TRC-20", "trx-20 energy checker", "能量", "带宽", "手续费"]
+  },
+  {
+    "slug": "trx20-energy-checker",
+    "lang": "en",
+    "title": "TRX-20 Energy Checker: Quick Cost Estimator (with Calculator)",
+    "description": "A trx-20 energy checker for estimating TRC-20 transfer energy and TRX costs. Includes a copy-paste calculator and cost-saving tips.",
+    "cover": "/assets/covers/tron-energy.png",
+    "date": "2025-09-22",
+    "readingMinutes": 3,
+    "file": "2025-09-22-trx20-energy-checker.en.html",
+    "tags": ["TRON", "TRC-20", "trx-20 energy checker", "Energy", "Bandwidth", "Fees"]
   }
 ]

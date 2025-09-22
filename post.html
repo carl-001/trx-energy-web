@@ -67,12 +67,11 @@
     <div class="nav">
       <ul>
         <li><a id="navEnergy" href="#">Energy Rental</a></li>
-        <li><a id="navSwap" href="#">U↔T Swap</a></li>
         <li><a id="navPer" href="#">Per-Tx Plan</a></li>
         <li><a id="navApi" href="#">Energy API</a></li>
-        <li class="apititle"><a id="navAgent" href="#">Become an Agent</a></li>
-        <li id="navArticles"><a href="#">Articles</a></li>
+        <li class="apititle"><a id="navAgent" href="#">Join Us</a></li>
         <li id="customerService"><a href="#">Support</a></li>
+        <li id="navArticles"><a href="#">Articles</a></li>
       </ul>
     </div>
   </div>
@@ -125,7 +124,7 @@
 
   // 多语言（默认英文；需默认中文可把 getLang 里回退改成 'zh'）
   const DICT = {
-    en:{nav_energy:'Energy Rental',nav_swap:'U↔T Swap',nav_per:'Per-Tx Plan',nav_api:'Energy API',nav_agent:'Become an Agent',nav_cs:'Support', nav_articles:'Articles', sub:'Actionable tips for TRON energy.', notFound:'Not found', loadErr:'Failed to load posts index. Make sure posts/posts.json exists and paths are correct.'},
+    en:{nav_energy:'Energy Rental',nav_swap:'U↔T Swap',nav_per:'Per-Tx Plan',nav_api:'Energy API',nav_agent:'Join Us',nav_cs:'Support', nav_articles:'Articles', sub:'Actionable tips for TRON energy.', notFound:'Not found', loadErr:'Failed to load posts index. Make sure posts/posts.json exists and paths are correct.'},
     zh:{nav_energy:'能量闪租',nav_swap:'U-T闪兑',nav_per:'笔数模式',nav_api:'能量API',nav_agent:'加入代理',nav_cs:'联系客服', nav_articles:'文章/教程', sub:'TRON 能量的实用技巧与教程。', notFound:'未找到文章', loadErr:'文章索引加载失败：请确认 posts/posts.json 存在且路径正确。'}
   };
   function t(sel, s){ const el=document.querySelector(sel); if(el) el.textContent=s; }

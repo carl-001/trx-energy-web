@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>TRX-20 Energy Checker：一键估算能量成本（含实用计算器）</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="用 trx-20 energy checker 思路快速估算 TRON / TRC-20 转账所需能量与 TRX 成本，配前端计算器与省费建议。">
+    <link rel="canonical" href="/posts/2025-09-22-trx20-energy-checker.zh.html">
+    <style>
+        .article-body{font:16px/1.75 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;color:#111}
+        .article-body h1{font-size:26px;margin:10px 0 12px}
+        .article-body h2{margin:24px 0 8px;font-size:22px}
+        .article-body h2::before{content:"";display:inline-block;width:6px;height:16px;background:#10b981;border-radius:2px;margin-right:8px;vertical-align:baseline}
+        .article-body p{margin:8px 0}
+        .article-body ul,.article-body ol{margin:8px 0 8px 1.25rem}
+        .article-body a{color:#0a58ca;text-decoration:none;border-bottom:1px dotted rgba(10,88,202,.35)}
+        .article-body a:hover{border-bottom-color:transparent}
+        .article-body table{width:100%;border-collapse:collapse;margin:10px 0;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+        .article-body th,.article-body td{padding:10px 12px;border-bottom:1px solid #eef2f7}
+        .article-body thead th{background:#f8fafc;text-align:left;font-weight:600}
+        .article-body tbody tr:nth-child(even){background:#fafafa}
+        .article-body pre{background:#f6f8fa;color:#111;padding:12px 14px;border-radius:10px;overflow:auto;border:1px solid #e5e7eb}
+        .article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+        .article-body .note{background:#f8fff2;border-left:4px solid #16a34a;padding:10px 12px;border-radius:8px}
+        .muted{color:#6b7280}
+        .calc{display:grid;gap:.5rem;grid-template-columns:1fr 1fr;align-items:center;margin:12px 0;padding:12px;border:1px dashed #e5e7eb;border-radius:10px;background:#fcfcff}
+        .calc label{font-size:14px;color:#374151}
+        .calc input{width:100%;padding:8px 10px;border:1px solid #e5e7eb;border-radius:8px}
+        .calc .full{grid-column:1/-1}
+        .kpi{display:flex;gap:12px;flex-wrap:wrap}
+        .kpi div{background:#fff;border:1px solid #eef2f7;border-radius:10px;padding:8px 10px}
+    </style>
+</head>
+<body>
+<div class="article-body">
+
+    <h1>TRX-20 Energy Checker：一键估算能量成本</h1>
+    <p class="muted">读完约 3 分钟 · 面向跑量用户与集成开发者</p>
+
+    <div class="note">
+        本文提供一个前端计算器与实战参数，帮助你把 <strong>trx-20 energy checker</strong> 的思路落地到自己站点或内部工具中。
+    </div>
+
+    <h2>1）为什么需要 “trx-20 energy checker”</h2>
+    <p>在 TRON 上进行 TRC-20 转账（如 USDT）时，实际成本由 <strong>能量（Energy）</strong> 与 <strong>带宽（Bandwidth）</strong> 共同决定。<em>trx-20 energy checker</em> 的目标是把这两个变量可视化，给出单笔大致消耗，从而方便你做预算与风控。</p>
+
+    <h2>2）经验口径与基线</h2>
+    <ul>
+        <li>常见一笔 TRC-20 USDT 转账 ≈ <strong>65,000 能量</strong>；</li>
+        <li>带宽成本通常很小，但建议保留 <strong>~0.1 TRX</strong> 的估算口径；</li>
+        <li>如果首次给空地址转账或频繁授权，能量可能暂时翻倍。</li>
+    </ul>
+
+    <h2>3）在线计算器（trx-20 energy checker）</h2>
+    <div class="calc" id="calc">
+        <label>交易所需能量（Energy）</label>
+        <input id="energy" type="number" min="1" step="1000" value="65000">
+        <label>能量单价（TRX / 65,000 能量）</label>
+        <input id="pricePer65k" type="number" min="0" step="0.1" value="1.5">
+        <label>带宽消耗（按 TRX 估算）</label>
+        <input id="bandwidthTrx" type="number" min="0" step="0.01" value="0.1">
+        <div class="full kpi" id="kpi"></div>
+    </div>
+
+    <h2>4）最小估算函数（可直接复用）</h2>
+    <pre><code>function estimateTrxCost({ energyNeeded = 65000, pricePer65k = 1.5, bandwidthTrx = 0.1 }) {
+  const energyTrx = (energyNeeded / 65000) * pricePer65k;
+  const total = energyTrx + bandwidthTrx;
+  return { energyTrx, bandwidthTrx, total };
+}</code></pre>
+
+    <h2>5）省费建议</h2>
+    <ol>
+        <li><strong>预先准备能量</strong>：冻结 TRX 或租赁能量；</li>
+        <li><strong>避开首次转空地址</strong> 与重复授权；</li>
+        <li><strong>保留少量 TRX</strong> 用于带宽与兜底扣费。</li>
+    </ol>
+
+    <p class="muted">关键词：trx-20 energy checker · TRC-20 · TRON · Energy · 带宽 · 成本估算</p>
+
+</div>
+
+<script>
+    (function () {
+        const $ = (id) => document.getElementById(id);
+        const energy = $("energy"), price = $("pricePer65k"), bw = $("bandwidthTrx"), kpi = $("kpi");
+        const fmt = (n)=> (Math.round(n*1000)/1000).toString();
+        function calc(){
+            const e = Math.max(1, Number(energy.value||65000));
+            const p = Math.max(0, Number(price.value||1.5));
+            const b = Math.max(0, Number(bw.value||0.1));
+            const energyTrx = (e/65000)*p, total = energyTrx + b;
+            kpi.innerHTML =
+                '<div><b>能量成本</b><br>'+fmt(energyTrx)+' TRX</div>'+
+                '<div><b>带宽成本</b><br>'+fmt(b)+' TRX</div>'+
+                '<div><b>总计</b><br>'+fmt(total)+' TRX</div>';
+        }
+        ["input","change"].forEach(ev=>{energy.addEventListener(ev,calc);price.addEventListener(ev,calc);bw.addEventListener(ev,calc);});
+        calc();
+    })();
+</script>
+</body>
+</html>
