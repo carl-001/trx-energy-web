@@ -1,55 +1,110 @@
-<style>
-.article-body{font:16px/1.75 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;color:#111}
-.article-body h2{margin:24px 0 8px;font-size:22px}
-.article-body h2::before{content:"";display:inline-block;width:6px;height:16px;background:#10b981;border-radius:2px;margin-right:8px;vertical-align:baseline}
-.article-body p{margin:8px 0}
-.article-body ul,.article-body ol{margin:8px 0 8px 1.25rem}
-.article-body a{color:#0a58ca;text-decoration:none;border-bottom:1px dotted rgba(10,88,202,.35)}
-.article-body a:hover{border-bottom-color:transparent}
-.article-body table{width:100%;border-collapse:collapse;margin:10px 0;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
-.article-body th,.article-body td{padding:10px 12px;border-bottom:1px solid #eef2f7}
-.article-body thead th{background:#f8fafc;text-align:left;font-weight:600}
-.article-body tbody tr:nth-child(even){background:#fafafa}
-.article-body pre{background:#f6f8fa;color:#111;padding:12px 14px;border-radius:10px;overflow:auto;border:1px solid #e5e7eb}
-.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.article-body .note{background:#f8fff2;border-left:4px solid #16a34a;padding:10px 12px;border-radius:8px}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title id="t">TRX-20 Energy Checker: Quick Cost Estimator | trxfuel.cc</title>
+  <meta id="d" name="description" content="A trx-20 energy checker for estimating TRC-20 transfer energy and TRX costs. Includes a copy-paste calculator and cost-saving tips."/>
+  <link rel="canonical" id="canon" href=""/>
+  <link rel="alternate" id="altEn" hreflang="en" href=""/>
+  <link rel="alternate" id="altZh" hreflang="zh-Hans" href=""/>
+  <script type="application/ld+json" id="ld"></script>
 
-<div class="article-body">
-  <h2>Quick Answer</h2>
-  <p><strong>65,000 Energy = 1.5 TRX.</strong> A typical TRC-20 <strong>USDT</strong> transfer uses about <strong>~65,000 Energy</strong>, so the energy fee is <strong>1.5 TRX</strong>. Adding a small bandwidth burn (~<strong>0.1 TRX</strong>), total per transfer is roughly <strong>~1.6 TRX</strong>.</p>
+  <!-- base tag ensures paths are correctly resolved -->
+  <base href="/">
 
-  <h2>Energy &amp; Bandwidth Cheatsheet</h2>
-  <table>
-    <thead>
-    <tr><th>Scenario</th><th>Energy</th><th>Approx. Cost</th><th>Notes</th></tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>Standard USDT transfer</td>
-      <td>≈ 65,000</td>
-      <td><strong>~1.6 TRX</strong> (1.5 energy + ~0.1 bandwidth)</td>
-      <td>Most wallets/contracts fall here.</td>
-    </tr>
-    <tr>
-      <td>First transfer to inactive / empty address</td>
-      <td>≈ 131,000</td>
-      <td><strong>~3.1 TRX</strong> (≈3.02 energy + ~0.1 bandwidth)</td>
-      <td>Allowance init / account activation can double energy once.</td>
-    </tr>
-    </tbody>
-  </table>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="files/index.css"/>
+  <link rel="stylesheet" href="files/public.css"/>
+  <link rel="stylesheet" href="files/smallScreen.css"/>
 
-  <h2>Keep each transfer ≈ 1.6 TRX</h2>
-  <ol>
-    <li>Rent energy before sending (or use the per-transaction plan).</li>
-    <li>Keep a small TRX buffer for bandwidth (or freeze a bit of TRX).</li>
-    <li>Avoid sending to brand-new addresses when possible.</li>
-  </ol>
+  <script>
+    // Fixes paths dynamically for the current directory
+    (function setupBase(){
+      const curDir = location.pathname.replace(/[^\/]*$/, ''); // Get current directory
+      let baseDir = curDir;
+      try {
+        const ref = document.referrer ? new URL(document.referrer) : null;
+        if (ref && ref.origin === location.origin) {
+          const refDir = ref.pathname.replace(/[^\/]*$/, ''); // Get referring directory
+          if (curDir === '/' && refDir !== '/') baseDir = refDir; // Adjust base path if necessary
+        }
+      } catch(_) {}
+      const BASE = location.origin + baseDir;
+      window.__ABS_BASE__ = BASE;
 
-  <h2>Calculator</h2>
-  <p><strong>Unit price:</strong> <code>1.5 / 65,000 ≈ 0.0000231 TRX per Energy</code></p>
-  <pre><code>Standard tx (≈65,000 E)
+      ['files/index.css','files/public.css','files/smallScreen.css'].forEach(p=>{
+        const l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = BASE + p;
+        document.head.appendChild(l);
+      });
+    })();
+  </script>
+</head>
+<body>
+<div class="header">
+  <div class="menu elementWith">
+    <div class="logo"><img id="logoImg" class="logo_size" loading="lazy" src="" alt="logo"/></div>
+    <div class="nav">
+      <ul>
+        <li><a id="navEnergy" href="#">Energy Rental</a></li>
+        <li><a id="navPer" href="#">Per-Tx Plan</a></li>
+        <li><a id="navApi" href="#">Energy API</a></li>
+        <li class="apititle"><a id="navAgent" href="#">Join Us</a></li>
+        <li id="customerService"><a href="#">Support</a></li>
+        <li id="navArticles"><a href="#">Articles</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="title elementWith">
+    <h1 id="h1">TRX-20 Energy Checker: Quick Cost Estimator</h1>
+    <p id="sub">A trx-20 energy checker for estimating TRC-20 transfer energy and TRX costs.</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div id="breadcrumb" style="opacity:.8;font-size:13px;">
+    <a id="homeLink" href="#">trxfuel.cc</a> / <a id="artLink" href="#">Articles</a>
+  </div>
+
+  <div class="meta"><time id="date"></time> • <span id="tags"></span></div>
+  <article id="content">
+    <h2>Quick Answer</h2>
+    <p><strong>65,000 Energy = 1.5 TRX.</strong> A typical TRC-20 <strong>USDT</strong> transfer uses about <strong>~65,000 Energy</strong>, so the energy fee is <strong>1.5 TRX</strong>. Adding a small bandwidth burn (~<strong>0.1 TRX</strong>), total per transfer is roughly <strong>~1.6 TRX</strong>.</p>
+
+    <h2>Energy & Bandwidth Cheatsheet</h2>
+    <table>
+      <thead>
+      <tr><th>Scenario</th><th>Energy</th><th>Approx. Cost</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Standard USDT transfer</td>
+        <td>≈ 65,000</td>
+        <td><strong>~1.6 TRX</strong> (1.5 energy + ~0.1 bandwidth)</td>
+        <td>Most wallets/contracts fall here.</td>
+      </tr>
+      <tr>
+        <td>First transfer to inactive / empty address</td>
+        <td>≈ 131,000</td>
+        <td><strong>~3.1 TRX</strong> (≈3.02 energy + ~0.1 bandwidth)</td>
+        <td>Allowance init / account activation can double energy once.</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2>Keep each transfer ≈ 1.6 TRX</h2>
+    <ol>
+      <li>Rent energy before sending (or use the per-transaction plan).</li>
+      <li>Keep a small TRX buffer for bandwidth (or freeze a bit of TRX).</li>
+      <li>Avoid sending to brand-new addresses when possible.</li>
+    </ol>
+
+    <h2>Calculator</h2>
+    <p><strong>Unit price:</strong> <code>1.5 / 65,000 ≈ 0.0000231 TRX per Energy</code></p>
+    <pre><code>Standard tx (≈65,000 E)
 Energy: 65,000 × 0.0000231 ≈ 1.50 TRX
 Bandwidth: ~0.10 TRX
 Total: ≈ 1.60 TRX
@@ -60,7 +115,39 @@ Bandwidth: ~0.10 TRX
 Total: ≈ 3.12 TRX
 </code></pre>
 
-  <div class="note">
-    Actual usage varies by contract and wallet (~±10–20%). If you often hit new/empty wallets, consider pre-activation or batching.
-  </div>
+    <div class="note">
+      Actual usage varies by contract and wallet (~±10–20%). If you often hit new/empty wallets, consider pre-activation or batching.
+    </div>
+  </article>
 </div>
+
+<div class="footDiv">
+  <div class="safeAuthentication"><img id="safeImg" loading="lazy" src="" alt="safe"/><span>Security Verified</span></div>
+  <a id="copyLink" href="#" target="_blank" rel="noopener" style="color:#fff">Copyright © trxfuel.cc</a>
+</div>
+
+<script>
+  // Setup for paths & dynamic CSS injection
+  (function setupBase(){
+    const curDir = location.pathname.replace(/[^\/]*$/, '');
+    let baseDir = curDir;
+    try {
+      const ref = document.referrer ? new URL(document.referrer) : null;
+      if (ref && ref.origin === location.origin) {
+        const refDir = ref.pathname.replace(/[^\/]*$/, '');
+        if (curDir === '/' && refDir !== '/') baseDir = refDir;
+      }
+    } catch(_) {}
+    const BASE = location.origin + baseDir;
+    window.__ABS_BASE__ = BASE;
+
+    ['files/index.css','files/public.css','files/smallScreen.css'].forEach(p=>{
+      const l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = BASE + p;
+      document.head.appendChild(l);
+    });
+  })();
+</script>
+</body>
+</html>
